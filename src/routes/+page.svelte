@@ -12,7 +12,7 @@
 	let isLoading = true;
 
 	const animeURL = {
-		top: "http://localhost:5173/api/get-images",
+		top: "http://localhost:5173/api/get-images?limit=5",
 		all: "http://localhost:5173/api/get-images",
 	};
 

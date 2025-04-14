@@ -1,152 +1,61 @@
-<!-- <script>
-    let URL = "http://localhost:5173/api/get-images"
-
-    async function loadAnime() {
-		try {
-			await fetch(URL).then(response => response.json())
-                .then(json => console.log(json))
-		} catch (error) {
-			console.error('Fetch error:', error);
-		}
-	}
-
-    $effect(()=>{
-        loadAnime()
-    })
-</script>
-
-<div>
-    Hii
-</div> -->
-
-<script lang="ts" module>
-	import { useMobileView } from '@/hooks/use-mobile';
-
-	export async function load({
-		fetch,
-	}: {
-		fetch: typeof window.fetch;
-	}) {
-		// const page = $state(1);
-		// const { mediaWidth } = useMobileView();
-
-		// if (mediaWidth === 'lg') {
-		// 	limit = 8;
-		// } else {
-		// 	limit = 12;
-		// }
-        let URL = `http://localhost:5173/api/get-images`;
-		try {
-			const data = await fetch(URL)
-				.then((response) => response.json())
-            console.log("data",data)
-
-			return {
-				props: { allAnime: data }
-			};
-		} catch (error) {
-			return {
-				status: 500,
-				error: new Error('Failed to fetch anime data')
-			};
-		}
-	}
-</script>
-
 <script lang="ts">
-	// import { ChevronLeft, ChevronRight } from '@lucide/svelte';
-	// import { untrack } from 'svelte';
+	import { onMount } from 'svelte';
 
-	// type AnimeType = {
-	// 	allAnime: {
-	// 		id: Number;
-	// 		title: string;
-	// 		description: string;
-	// 		image_url: string;
-	// 	};
-	// };
+	type Anime = {
+		id: number;
+		title: string;
+		description: string;
+		image_url: string;
+	};
 
-	export let allAnime
+	let allAnime: Anime[] = [];
+	let isLoading = true;
 
-    console.log("ALL")
-    // console.log(allAnime)
+	const URL = 'http://localhost:5173/api/get-images';
 
-	// const { mediaWidth } = useMobileView();
-
-	// let { limit }: {  } = $props();
-
-	// if (mediaWidth === 'lg') {
-	// 	limit = 8;
-	// } else {
-	// 	limit = 12;
-	// }
-
-	// let pageNum = $state(1);
-	// let isLoading = $state(false);
-
-	let URL = `http://localhost:5173/api/get-images`;
-
-	async function loadAnime() {
+	onMount(async () => {
 		try {
-			const data = await fetch(URL)
-				.then((response) => response.json());
-            
-            allAnime = data
-            
+			const response = await fetch(URL);
+			if (!response.ok) {
+				throw new Error(`Failed to fetch: ${response.status}`);
+			}
+			allAnime = await response.json();
 		} catch (error) {
 			console.error('Fetch error:', error);
+		} finally {
+			isLoading = false;
 		}
-	}
-
-    loadAnime()
-
-	// async function handleNext() {
-	// 	isLoading = true;
-	// 	pageNum++;
-	// 	loadAnime();
-	// }
-
-	// async function handlePrev() {
-	// 	isLoading = true;
-	// 	pageNum--;
-	// 	loadAnime();
-	// }
-
-	// $effect(() => {
-	// 	// if (pageNum <= 1) {
-	// 	// 	untrack(() => loadAnime());
-	// 	// }
-    //     loadAnime()
-	// });
+	});
 </script>
 
-<div class="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-    {#each allAnime as anime}
-        <a
-            data-sveltekit-preload-data="tap"
-            href={`/i/${anime.id}`}
-            class="relative overflow-hidden rounded-lg p-2 shadow-sm"
-        >
-            <div class="relative h-60 overflow-hidden rounded-md">
-                <img
-                    src={anime.image_url}
-                    alt={anime.title}
-                    class="h-full w-full object-cover"
-                />
-                <!-- {#if anime.score}
-                        <div class="absolute bottom-1 left-0">
-                            <ScoreRing score={anime.score} />
-                        </div>
-                    {/if} -->
-            </div>
+{#if isLoading}
+	<p class="text-center text-sm">Loading...</p>
+{:else if allAnime.length === 0}
+	<p class="text-center text-sm">No anime images found.</p>
+{:else}
+	<div class="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+		{#each allAnime as anime}
+			<a
+				href={`/i/${anime.id}`}
+				class="relative overflow-hidden rounded-lg p-2 shadow-sm"
+				sveltekit:prefetch
+			>
+				<div class="relative h-60 overflow-hidden rounded-md">
+					<picture>
+						<!-- <source srcset={anime.image_url.replace('.jpg', '.webp')} type="image/webp" /> -->
+						<img
+							src={anime.image_url.concat('?auto=format&fit=crop&w=600&h=600&dpr=2')}
+							alt={anime.title}
+							class="h-60 w-full object-cover"
+							loading="lazy"
+						/>
+					</picture>					
+				</div>
 
-            <div class="mt-2 space-y-1">
-                <h2 class="truncate text-base font-semibold">{anime.title}</h2>
-                <!-- <p class="truncate text-sm text-muted-foreground">
-                        Episodes: {anime.episodes ?? 'Unknown'}
-                    </p> -->
-            </div>
-        </a>
-    {/each}
-</div>
-
+				<div class="mt-2 space-y-1">
+					<h2 class="truncate text-base font-semibold">{anime.title}</h2>
+				</div>
+			</a>
+		{/each}
+	</div>
+{/if}

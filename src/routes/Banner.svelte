@@ -33,12 +33,12 @@
 	{#if isLoading}
 		<p class="text-muted-foreground">Loading anime list...</p>
 	{:else}
-		{#each animeList.slice(0,5) as anime}
+		{#each animeList as anime}
 			<swiper-slide>
 				<div class="relative h-[88vh] w-full px-10">
 					<img
 						class="absolute right-0 top-0 h-full w-[73vw] object-cover"
-						src={anime?.image_url}
+						src={anime.image_url.concat('?auto=format&fit=crop&w=600&h=600&dpr=2')}
 						alt={anime?.title ?? 'Anime'}
 					/>
 
