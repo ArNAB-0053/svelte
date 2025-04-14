@@ -4,28 +4,27 @@
 	import Banner from "./Banner.svelte";
 	import Header from "./Header.svelte";
 	import Footer from "./Footer.svelte";
+	import AllAnime from "./AllAnime.svelte";
+	import ImagesHome from "./ImagesHome.svelte";
 
 	let animeList = [];
 	let topAnimeList = [];
 	let isLoading = true;
 
 	const animeURL = {
-		top: "https://api.jikan.moe/v4/top/anime",
-		all: "https://api.jikan.moe/v4/anime",
+		top: "http://localhost:5173/api/get-images",
+		all: "http://localhost:5173/api/get-images",
 	};
 
 	onMount(async () => {
 		try {
 			const [topRes, allRes] = await Promise.all([
-				fetch(animeURL.top),
-				fetch(animeURL.all)
+				fetch(animeURL.top).then((response) => response.json()),
+				fetch(animeURL.all).then((response) => response.json())
 			]);
 
-			const topData = await topRes.json();
-			const allData = await allRes.json();
-
-			topAnimeList = topData.data;
-			animeList = allData.data;
+			topAnimeList = topRes;
+			animeList = allRes;
 		} catch (error) {
 			console.error('Failed to fetch anime:', error);
 		} finally {
@@ -34,11 +33,13 @@
 	});
 </script>
 
-<Header/>
+<!-- <Header/> -->
 <Banner animeList={topAnimeList} {isLoading} />
 
 <main class="lg:px-8">
-    <Home {animeList} {isLoading} perPage={10}/>
+    <!-- <AllAnime /> -->
+
+	<ImagesHome />
 </main>
 
 <Footer/>

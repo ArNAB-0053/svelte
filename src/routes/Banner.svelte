@@ -33,12 +33,12 @@
 	{#if isLoading}
 		<p class="text-muted-foreground">Loading anime list...</p>
 	{:else}
-		{#each animeList.slice(0, 5) as anime}
+		{#each animeList.slice(0,5) as anime}
 			<swiper-slide>
 				<div class="relative h-[88vh] w-full px-10">
 					<img
 						class="absolute right-0 top-0 h-full w-[73vw] object-cover"
-						src={anime?.images?.webp?.large_image_url}
+						src={anime?.image_url}
 						alt={anime?.title ?? 'Anime'}
 					/>
 
@@ -52,14 +52,14 @@
 						<div>
 							<h1 class="mb-4 text-4xl font-bold text-foreground">{anime.title}</h1>
 
-							<div class="mb-2 flex gap-x-1 text-muted-foreground/80">
+							<!-- <div class="mb-2 flex gap-x-1 text-muted-foreground/80">
 								{#each anime.genres as genre}
 									<p>{genre.name} |</p>
 								{/each}
-							</div>
+							</div> -->
 
 							<p class="mb-5 line-clamp-4 text-base text-secondary-foreground/80">
-								{anime.background || anime.synopsis}
+								{anime.description}
 							</p>
 						</div>
 						<Button class="w-[60%]">Learn More</Button>
