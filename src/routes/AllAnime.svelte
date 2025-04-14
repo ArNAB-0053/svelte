@@ -1,25 +1,32 @@
 <script lang="ts">
-	import * as Pagination from "$lib/components/ui/pagination/index.js";
-	import AllAnime from "./AllAnime.svelte";
-	// import Pagination from "./Pagination.svelte";
+	import Button from "@/components/ui/button/button.svelte";
+	import { onMount } from "svelte";
 
-	let { animeList, isLoading, perPage = 12 }:{
-        animeList: any[], 
-		isLoading: boolean,
-		perPage?: number
-    } = $props();
+    let page = 1;
+    const animeURL = `https://api.jikan.moe/v4/anime?page=${page}`
 
-	const currentPage = $state(1);
-	const totalPages = $derived(() => Math.ceil(animeList.length / perPage));
+    let animeList = [];
+	let isLoading = true;
 
-	// Get paginated anime based on current page
-	const paginatedAnime = $derived(() => {
-	const start = (currentPage() - 1) * perPage;
-	const end = currentPage() * perPage;
-	return animeList.slice(start, end);
-});
+    onMount(async () => {
+		try {
+			const allRes = await fetch(animeURL);
+			const allData = await allRes.json();
+			animeList = allData.data;
+		} catch (error) {
+			console.error('Failed to fetch anime:', error);
+		} finally {
+			isLoading = false;
+		}
+	});
+
+	export const handleNext = () => {
+		page += 1
+	}
 </script>
 
+<Button>Prev</Button>
+<Button on:click(handleNext)>Next</Button>
 
 <div class="container mx-auto py-8">
 	<h1 class="mb-6 text-3xl font-bold text-primary">Trending Anime</h1>
@@ -54,7 +61,5 @@
 		</div>
 
 		<!-- <Pagination rows={examples} perPage={3} bind:trimmedRows={values} /> -->
-
-		<AllAnime />
 	{/if}
 </div>
