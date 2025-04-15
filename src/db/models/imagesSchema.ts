@@ -5,6 +5,6 @@ const imagesSchema = new mongoose.Schema({
     description: { type: String, required: true },
     image_url: { type: String, required: true },
     tags: [{ type: String }],
-});
+}, { timestamps: true });
 
-export const YourModel = mongoose.model('YourModel', imagesSchema);
+export const ImagesSchema = mongoose.model('ImagesSchema', imagesSchema);

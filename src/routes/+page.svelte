@@ -1,10 +1,7 @@
 <script>
 	import { onMount } from "svelte";
-	import Home from "./Home.svelte";
 	import Banner from "./Banner.svelte";
-	import Header from "./Header.svelte";
 	import Footer from "./Footer.svelte";
-	import AllAnime from "./AllAnime.svelte";
 	import ImagesHome from "./ImagesHome.svelte";
 
 	let animeList = [];
@@ -41,5 +38,3 @@
 
 	<ImagesHome />
 </main>
-
-<Footer/>

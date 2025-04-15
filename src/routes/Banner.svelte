@@ -8,7 +8,7 @@
 	let { animeList, isLoading }: { animeList: any[]; isLoading: boolean } = $props();
 </script>
 
-<div class="mt-24 mb-6 px-6 lg:px-[2.3rem] flex items-center justify-between">
+<div class="mt-24 mb-6 px-6 lg:px-8 flex items-center justify-between">
 	<h1 class="text-2xl font-black oswald">Finding your genre</h1>
 	<span class="flex items-center justify-end gap-x-2">
 		<div class="swiper-button-prev cursor-pointer bg-muted/70 hover:bg-muted text-muted-foreground hover:text-white rounded-sm transition-all duration-200 ease-in-out">
@@ -20,7 +20,7 @@
 	</span>
 </div>
 
-<div class="px-6 lg:px-[2.3rem]">
+<div class="px-6 lg:px-8">
 	<swiper-container
 		class="mySwiper"
 		navigation-next-el=".swiper-button-next"

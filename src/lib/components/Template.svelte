@@ -29,7 +29,7 @@
 </script>
 
 {#if isLoading}
-	<p class="text-center text-sm">Loading...</p>
+<p class="text-center text-sm">Loading...</p>
 {:else if allAnime.length === 0}
 	<p class="text-center text-sm">No anime images found.</p>
 {:else}
