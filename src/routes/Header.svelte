@@ -21,9 +21,9 @@
 		</nav>
 
 		<!-- Auth Buttons -->
-		<div class="lora hidden gap-3 italic sm:flex">
+		<a href="/login" class="lora hidden gap-3 italic sm:flex">
 			<Button>Login</Button>
-		</div>
+		</a>
 
 		<!-- Mobile Menu Button -->
 		<div class="md:hidden">

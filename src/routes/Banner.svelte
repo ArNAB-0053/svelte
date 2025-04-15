@@ -9,7 +9,7 @@
 </script>
 
 <div class="mt-24 mb-6 px-6 lg:px-8 flex items-center justify-between">
-	<h1 class="text-2xl font-black oswald">Finding your genre</h1>
+	<h1 class="text-2xl font-black lora italic ">Finding your <strong class="oswald not-italic">categories . . .</strong></h1>
 	<span class="flex items-center justify-end gap-x-2">
 		<div class="swiper-button-prev cursor-pointer bg-muted/70 hover:bg-muted text-muted-foreground hover:text-white rounded-sm transition-all duration-200 ease-in-out">
 			<ChevronLeft size={30} />
