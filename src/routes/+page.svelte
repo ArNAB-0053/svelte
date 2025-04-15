@@ -36,7 +36,7 @@
 <!-- <Header/> -->
 <Banner animeList={topAnimeList} {isLoading} />
 
-<main class="lg:px-8">
+<main class="lg:px-8 mt-8">
     <!-- <AllAnime /> -->
 
 	<ImagesHome />

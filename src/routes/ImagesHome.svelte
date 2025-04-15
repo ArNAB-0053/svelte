@@ -11,7 +11,7 @@
 	let allAnime: Anime[] = [];
 	let isLoading = true;
 
-	const URL = 'http://localhost:5173/api/get-images';
+	const URL = 'http://localhost:5173/api/get-images?limit=24';
 
 	onMount(async () => {
 		try {
@@ -33,7 +33,7 @@
 {:else if allAnime.length === 0}
 	<p class="text-center text-sm">No anime images found.</p>
 {:else}
-	<div class="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+	<div class="grid pb-10 grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
 		{#each allAnime as anime}
 			<a
 				href={`/i/${anime.id}`}
@@ -53,7 +53,7 @@
 				</div>
 
 				<div class="mt-2 space-y-1">
-					<h2 class="truncate text-base font-semibold">{anime.title}</h2>
+					<h2 class="truncate text-base font-semibold oswald">{anime.title}</h2>
 				</div>
 			</a>
 		{/each}

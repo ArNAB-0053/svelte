@@ -5,17 +5,17 @@
 <header class="fixed inset-x-0 top-0 z-50 bg-background/60 backdrop-blur-md border-b border-border">
 	<div class="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-4 sm:px-6 lg:px-8">
 		<!-- Logo -->
-		<a href="/" class="text-lg font-bold tracking-tight text-foreground">
-			AnimeVerse
+		<a href="/" class="text-lg font-bold tracking-tight text-foreground oswald">
+			United.
 		</a>
 
 		<!-- Desktop Nav -->
-		<nav class="hidden md:flex items-center gap-6 text-sm">
+		<nav class="hidden md:flex items-center gap-6 text-sm lora italic">
 			<a
 				href="#"
 				class="text-muted-foreground transition hover:text-foreground"
 			>
-				Upcoming
+				New
 			</a>
 			<a
 				href="#"
@@ -27,19 +27,19 @@
 				href="#"
 				class="text-muted-foreground transition hover:text-foreground"
 			>
-				Genres
+				Tags
 			</a>
 		</nav>
 
 		<!-- Auth Buttons -->
-		<div class="hidden sm:flex gap-3">
+		<div class="hidden sm:flex gap-3 lora italic">
 			<Button>
 				Login
 			</Button>
 		</div>
 
 		<!-- Mobile Menu Button -->
-		<div class="md:hidden">
+		<div class="md:hidden ">
 			<Button
 				aria-label="Toggle Menu"
 			>
