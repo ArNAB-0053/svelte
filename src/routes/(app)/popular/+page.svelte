@@ -1,5 +1,5 @@
 <script>
-	import Template from '@/components/Template.svelte';
+	import Template from '../../components/Template.svelte';
 
 	export let data;
 </script>

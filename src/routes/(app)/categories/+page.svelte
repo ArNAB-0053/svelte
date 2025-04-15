@@ -1,6 +1,6 @@
 <script>
-	import Categories from '@/components/Categories.svelte';
-	import Template from '@/components/Template.svelte';
+	import Categories from '../../components/Categories.svelte';
+	import Template from '../../components/Template.svelte';
 
     export let data;
 </script>

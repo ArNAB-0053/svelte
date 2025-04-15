@@ -16,7 +16,7 @@
 	let Categories: Category[] = [];
 	let isLoading = true;
 
-	const URL = 'http://localhost:5173/api/get-images?limit=12';
+	const URL = '/api/images?limit=12';
 
 	onMount(async () => {
 		try {

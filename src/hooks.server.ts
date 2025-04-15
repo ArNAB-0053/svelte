@@ -1,5 +1,11 @@
-import { start_mongo } from "./db/mongo";
+import { startMongo } from "@/server/db";
 
-start_mongo().then(() => {
-	console.log('Mongo started');
-}).catch(e => {console.error(e)})
+export async function handle({ event, resolve }) {
+	try {
+	  await startMongo();
+	} catch (error) {
+	  console.error('Failed to connect to MongoDB:', error);
+	}
+  
+	return resolve(event);  
+  }

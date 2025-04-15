@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Sidebar from '@/components/Sidebar.svelte';
+	import Sidebar from './Sidebar.svelte';
 	import { onMount } from 'svelte';
 	export let data;
 	let isLoading = true;
 	let imageData;
-	const URL = `http://localhost:5173/api/get-images?limit=6`;
+	const URL = `/api/images?limit=6`;
 	onMount(async () => {
 		try {
 			const response = await fetch(URL);

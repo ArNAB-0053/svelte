@@ -1,0 +1,103 @@
+[
+    {
+      "title": "Sea",
+      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+      "description": "Explore the endless beauty of the sea, from waves to shorelines."
+    },
+    {
+      "title": "Mountains",
+      "image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "description": "Majestic peaks and alpine views await in our mountain collection."
+    },
+    {
+      "title": "Desert",
+      "image_url": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+      "description": "Golden sands, vast dunes, and the warmth of the desert sun."
+    },
+    {
+      "title": "Forest",
+      "image_url": "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+      "description": "Wander through dense forests, where nature thrives untouched."
+    },
+    {
+      "title": "Flowers",
+      "image_url": "https://images.unsplash.com/photo-1498654200842-41069d3dd3be",
+      "description": "From tulips to cherry blossoms, embrace the colors of nature."
+    },
+    {
+      "title": "City",
+      "image_url": "https://images.unsplash.com/photo-1473654729523-203e25dfda10",
+      "description": "Urban life and cityscapes from around the globe."
+    },
+    {
+      "title": "Sunset",
+      "image_url": "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368",
+      "description": "Golden hour skies and dreamy horizons to calm your soul."
+    },
+    {
+      "title": "Night",
+      "image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "description": "Night skies, star trails, and dreamy moonlit scenes."
+    },
+    {
+      "title": "Winter",
+      "image_url": "https://images.unsplash.com/photo-1489587021521-5e50c229c53a",
+      "description": "Snow-covered landscapes and cozy vibes for chilly days."
+    },
+    {
+      "title": "Spring",
+      "image_url": "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6",
+      "description": "Fresh blooms and vibrant greens of the spring season."
+    },
+    {
+      "title": "Autumn",
+      "image_url": "https://images.unsplash.com/photo-1446034295857-c39f8844fad4",
+      "description": "Fall leaves, warm tones, and the cozy season of change."
+    },
+    {
+      "title": "Beach",
+      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+      "description": "Sandy shores, crystal waves, and vacation dreams."
+    },
+    {
+      "title": "Architecture",
+      "image_url": "https://images.unsplash.com/photo-1504087697493-573f3a5c13c5",
+      "description": "Explore modern, classic, and urban architecture."
+    },
+    {
+      "title": "Animals",
+      "image_url": "https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0",
+      "description": "Wildlife and pets captured in their purest forms."
+    },
+    {
+      "title": "Travel",
+      "image_url": "https://images.unsplash.com/photo-1526481280690-7bdfd8f90a4f",
+      "description": "Wanderlust moments from around the world."
+    },
+    {
+      "title": "Adventure",
+      "image_url": "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a",
+      "description": "Thrilling scenes from hikes, climbs, and explorations."
+    },
+    {
+      "title": "Lakes",
+      "image_url": "https://images.unsplash.com/photo-1487730116645-74489c95b41b",
+      "description": "Calm waters, mirrored skies, and lakeside peace."
+    },
+    {
+      "title": "Sky",
+      "image_url": "https://images.unsplash.com/photo-1493612276216-ee3925520721",
+      "description": "Day or night, the sky offers a canvas of wonder."
+    },
+    {
+      "title": "Countryside",
+      "image_url": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
+      "description": "Charming farms, barns, and rolling rural views."
+    },
+    {
+      "title": "Abstract",
+      "image_url": "https://images.unsplash.com/photo-1581291519195-ef11498d1cf5",
+      "description": "Artistic, minimal, and surreal visuals to inspire."
+    }
+  ]
+  

@@ -1,16 +1,15 @@
 <script>
 	import { onMount } from "svelte";
-	import Banner from "./Banner.svelte";
-	import Footer from "./Footer.svelte";
-	import ImagesHome from "./ImagesHome.svelte";
+	import Banner from "../components/Banner.svelte";
+	import ImagesHome from "../components/ImagesHome.svelte";
 
 	let animeList = [];
 	let topAnimeList = [];
 	let isLoading = true;
 
 	const animeURL = {
-		top: "http://localhost:5173/api/get-images?limit=5",
-		all: "http://localhost:5173/api/get-images",
+		top: "/api/images?limit=5",
+		all: "/api/images",
 	};
 
 	onMount(async () => {

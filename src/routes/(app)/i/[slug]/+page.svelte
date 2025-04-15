@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Sidebar from '@/components/Sidebar.svelte';
+	import Sidebar from '../../../components/Sidebar.svelte';
 import { onMount } from 'svelte';
 	export let data;
 	let isLoading = true;
