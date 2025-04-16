@@ -4,7 +4,7 @@ import { onMount } from 'svelte';
 	export let data;
 	let isLoading = true;
 	let imageData;
-	const URL = `http://localhost:5173/api/get-image-id?id=${data.slug}`;
+	const URL = `/api/image?id=${data.slug}`;
 	onMount(async () => {
 		try {
 			const response = await fetch(URL);

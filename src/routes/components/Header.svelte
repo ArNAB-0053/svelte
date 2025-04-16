@@ -18,9 +18,15 @@
 			</a>
 		</nav>
 
-		<a href="/login" class="lora hidden gap-3 italic sm:flex">
-			<Button>Login</Button>
-		</a>
+		<div class="flex items-center justify-end gap-x-2">
+			<a href="/add-image" class="lora hidden gap-3 italic sm:flex">
+				<Button variant="outline" class="rounded-md border-primary/30 text-primary/80 bg-transparent hover:bg-primary/30">Add Image</Button>
+			</a>
+	
+			<a href="/login" class="lora hidden gap-3 italic sm:flex">
+				<Button>Login</Button>
+			</a>
+		</div>
 
 		<div class="md:hidden">
 			<Button aria-label="Toggle Menu">

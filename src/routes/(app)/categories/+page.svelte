@@ -9,5 +9,5 @@
 	<Categories />
 
 	<h2 class="oswald mt-16 mb-5 text-3xl">Best <i class="lora italic">images</i> for you</h2>
-    <Template />
+    <Template skip=34 />
 </div>

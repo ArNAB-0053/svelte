@@ -1,4 +1,4 @@
-import { startMongo } from "@/server/db";
+import { startMongo } from '$lib/server/db';
 
 export async function handle({ event, resolve }) {
 	try {
@@ -8,4 +8,4 @@ export async function handle({ event, resolve }) {
 	}
   
 	return resolve(event);  
-  }
+}

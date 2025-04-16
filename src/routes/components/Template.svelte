@@ -8,10 +8,12 @@
 		image_url: string;
 	};
 
-	let allAnime: Anime[] = [];
-	let isLoading = true;
+	let allAnime: Anime[] = $state([]);
+	let isLoading = $state(true);
 
-	const URL = '/api/images?limit=24';
+	let {skip = 0} = $props();
+
+	const URL = `/api/images?limit=24&skip=${skip}`;
 
 	onMount(async () => {
 		try {
@@ -53,7 +55,7 @@
 				</div>
 
 				<div class="mt-2 space-y-1">
-					<h2 class="truncate text-base font-semibold oswald">{anime.title}</h2>
+					<h2 class="truncate text-base font-semibold oswald">{anime.title} || {anime.id}</h2>
 				</div>
 			</a>
 		{/each}

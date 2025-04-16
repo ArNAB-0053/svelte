@@ -8,7 +8,7 @@
 	let isLoading = true;
 
 	const animeURL = {
-		top: "/api/images?limit=5",
+		top: "/api/categories?limit=5",
 		all: "/api/images",
 	};
 
