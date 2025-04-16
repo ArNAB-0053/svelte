@@ -1,15 +1,26 @@
 <script lang="ts">
-	import { enhance } from "$app/forms";
-	import type { ActionData } from "./$types";
+	import Button from "@/components/ui/button/button.svelte";
 
-	export let form: ActionData;
+	let email = '';
+	let password = '';
+	let message = '';
 
-    console.log("form", form)
+	async function handleSignup() {
+		const res = await fetch('/api/auth/signup', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ email, password })
+		});
+
+		const data = await res.json();
+		message = data.message || data.error;
+	}
 </script>
 
-<form method="POST" autocomplete="off" use:enhance>
-	<input name="name" type="text" placeholder="Your Name" value={form?.data?.name ?? ""} required />
-	<input name="email" type="email" placeholder="Email" value={form?.data?.email ?? ""} required />
-	<input name="password" type="password" placeholder="Password" required />
-	<button type="submit">Sign Up</button>
+<form on:submit|preventDefault={handleSignup} class="mt-20 px-5 text-black">
+	<input type="email" bind:value={email} placeholder="Email" required />
+	<input type="password" bind:value={password} placeholder="Password" required />
+	<Button type="submit">Sign Up</Button>
 </form>
+
+{#if message}<p>{message}</p>{/if}
