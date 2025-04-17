@@ -1,41 +1,3 @@
-<script lang="ts">
-	import { goto } from '$app/navigation';
-	import Button from '@/components/ui/button/button.svelte';
-	import Input from '@/components/ui/input/input.svelte';
-	import { browser } from '$app/environment';
-	let username = '';
-	let email = '';
-	let password = '';
-	let message = '';
-
-	let red = false;
-
-	if (browser) {
-		const token = localStorage.getItem('token');
-		if (token && token !== undefined) {
-			goto('/');
-		}
-	}
-
-	async function handleSignup() {
-		const res = await fetch('/api/auth/signin', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ username, email, password })
-		});
-
-		const data = await res.json();
-		localStorage.setItem('token', data.token);
-
-		// console.log(data);
-		message = data.message || data.error;
-
-		red = message === data.message
-
-		goto('/profile');
-	}
-</script>
-
 <div class="flex min-h-screen items-center justify-between gap-x-8">
 	<div class="relative w-[50%]">
 		<span class="overflow-hidden">
@@ -71,14 +33,8 @@
 						now .
 					</span>
 					<Button type="submit" class="lora italic w-2/3 place-self-center">Log In</Button>
-
-					{#if message}
-						<p class={` ${red? 'text-red-600': 'text-green-600'} text-center mt-1`}>{message}</p>
-					{/if}
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
-
-<!-- {#if message}<p>{message}</p>{/if} -->
