@@ -75,7 +75,7 @@
             <strong>{user.email}</strong>
         </span>
 
-        <Button onsubmit={handleLogOut} class="mt-12">
+        <Button onclick={handleLogOut} class="mt-12">
             Log out
         </Button>
 	{/if}

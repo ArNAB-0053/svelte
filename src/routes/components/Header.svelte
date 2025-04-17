@@ -2,10 +2,11 @@
 	import { browser } from '$app/environment';
 	import { Button } from '@/components/ui/button';
 	import { onMount } from 'svelte';
-	let isToken: boolean = false;
+	let isToken: boolean = $state(false);
 	if (browser) {
 		const token = localStorage.getItem('token');
 		isToken = token !== null && token !== undefined;
+		console.log("browser")
 	}
 
 </script>
@@ -44,7 +45,6 @@
 				<a href="/profile" class="lora hidden gap-3 italic sm:flex">
 					<Button>Profile</Button>
 				</a>
-
 				
 			{:else}
 				<a href="/login" class="lora hidden gap-3 italic sm:flex">
