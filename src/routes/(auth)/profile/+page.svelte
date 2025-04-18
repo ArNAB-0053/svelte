@@ -4,22 +4,20 @@
 	import { jwtDecode } from 'jwt-decode';
 	import { onMount } from 'svelte';
 	import Button from '@/components/ui/button/button.svelte';
-	// import { JWT_SECRET } from '$env/static/private';
-	// import jwt from 'jsonwebtoken';
+	import { auth } from '@/stores/auth';
+	import { toast } from 'svelte-sonner';
 
 	let decodedToken: string | null = $state(null);
-    let isToken: boolean = false
 
-	if (browser) {
-		const token = localStorage?.getItem('token');
-        if (token) {
-            isToken = true
-            decodedToken = jwtDecode(token);
-        }
-		// console.log(decodedToken?.email);
-	} else {
-		console.log('Not working');
-	}
+	$effect(() => {
+		if (browser) {
+			if ($auth.token) {
+				decodedToken = jwtDecode($auth.token);
+			}
+		} else {
+			console.log('Not working');
+		}
+	});
 
 	type user = {
 		first_name: string;
@@ -28,12 +26,13 @@
 	};
 
 	let user: user | null = $state(null);
-	let isLoading: boolean = $state(true);
+	let isLoading: boolean = true;
 
 	onMount(async () => {
 		try {
 			const res = await fetch(`/api/user?email=${decodedToken?.email}`);
 			user = await res.json();
+			// console.log(user);
 		} catch (error) {
 			console.error(error);
 		} finally {
@@ -41,43 +40,30 @@
 		}
 	});
 
-    function handleLogOut() {
-        // if (isToken) {
-        console.log("Token removing ...")
-        localStorage?.removeItem("token");
-        console.log("Token removed")
-
-        goto('/')
-		// }
-    }
-
-	// console.log(token)
-	// if (!token || token === null || token === '' || token === undefined) {
-	// 	goto('/login');
-	// }
-
-	// const decoded = jwtDecode(token);
-	// console.log(decoded)
+	function handleLogOut() {
+		auth.set({ token: null, isLoggedIn: false });
+		toast.success('Logged in successfully!');
+		setTimeout(() => {
+			goto('/');
+		}, 2000);
+	}
 </script>
 
-<div class="mt-20 px-6 lg:px-8 min-h-screen italic flex items-start justify-start flex-col lora">
+<div class="lora mt-20 flex min-h-screen flex-col items-start justify-start px-6 italic lg:px-8">
 	{#if user}
 		<span>
 			First Name:
 			<strong>{user.first_name}</strong>
-        </span>
-        <span>
+		</span>
+		<span>
 			Last Name:
-            <strong>{user.last_name}</strong>
-        </span>
-        <span>
-			Email: 
-            <strong>{user.email}</strong>
-        </span>
+			<strong>{user.last_name}</strong>
+		</span>
+		<span>
+			Email:
+			<strong>{user.email}</strong>
+		</span>
 
-        <Button onclick={handleLogOut} class="mt-12">
-            Log out
-        </Button>
+		<Button onclick={handleLogOut} class="mt-12">Log out</Button>
 	{/if}
 </div>
-<!-- <p>{decoded}</p> -->

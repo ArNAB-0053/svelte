@@ -3,6 +3,8 @@
 	import Button from '@/components/ui/button/button.svelte';
 	import Input from '@/components/ui/input/input.svelte';
 	import { browser } from '$app/environment';
+	import { toast } from 'svelte-sonner';
+	import { auth } from '@/stores/auth';
 	let username = '';
 	let email = '';
 	let password = '';
@@ -25,14 +27,24 @@
 		});
 
 		const data = await res.json();
-		localStorage.setItem('token', data.token);
-
 		// console.log(data);
 		message = data.message || data.error;
 
-		red = message === data.message
+		red = !!data.error;
 
-		goto('/profile');
+		if (res.ok) {
+			// localStorage.setItem('token', data.token); // -> No need for that
+			auth.set({ token: data.token, isLoggedIn: true }); // It will be saved in LocalStorage
+			username = '';
+			email = '';
+			password = '';
+			toast.success('Logged in successfully!');
+			setTimeout(() => {
+				goto('/profile');
+			}, 2000);
+		} else {
+			toast.error(data.error || 'Login failed. Try again.');
+		}
 	}
 </script>
 
@@ -65,15 +77,15 @@
 					<Input type="username" bind:value={username} placeholder="username" required />
 					<Input type="password" bind:value={password} placeholder="Password" required />
 
-					<span class="text-muted-foreground/70 text-center my-2 text-sm">
-						Don't have an account ? 
+					<span class="my-2 text-center text-sm text-muted-foreground/70">
+						Don't have an account ?
 						<a href="/signup" class="text-primary underline">Sign up</a>
 						now .
 					</span>
-					<Button type="submit" class="lora italic w-2/3 place-self-center">Log In</Button>
+					<Button type="submit" class="lora w-2/3 place-self-center italic">Log In</Button>
 
 					{#if message}
-						<p class={` ${red? 'text-red-600': 'text-green-600'} text-center mt-1`}>{message}</p>
+						<p class={` ${red ? 'text-red-600' : 'text-green-600'} mt-1 text-center`}>{message}</p>
 					{/if}
 				</div>
 			</form>

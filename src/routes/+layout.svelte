@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Toaster } from '@/components/ui/sonner';
 	import '../app.css';
 	import Footer from './components/Footer.svelte';
 	import Header from './components/Header.svelte';
@@ -6,7 +7,8 @@
 </script>
 
 <div>
+	<Toaster />
 	<Header />
 	{@render children()}
-	<Footer/>
+	<Footer />
 </div>

@@ -1,14 +1,6 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import { Button } from '@/components/ui/button';
-	import { onMount } from 'svelte';
-	let isToken: boolean = $state(false);
-	if (browser) {
-		const token = localStorage.getItem('token');
-		isToken = token !== null && token !== undefined;
-		console.log("browser")
-	}
-
+	import { auth } from '@/stores/auth';
 </script>
 
 <header class="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/60 backdrop-blur-md">
@@ -41,7 +33,7 @@
 				>
 			</a>
 
-			{#if isToken}
+			{#if $auth.token && $auth.isLoggedIn}
 				<a href="/profile" class="lora hidden gap-3 italic sm:flex">
 					<Button>Profile</Button>
 				</a>

@@ -2,6 +2,8 @@
 	import { goto } from '$app/navigation';
 	import Button from '@/components/ui/button/button.svelte';
 	import Input from '@/components/ui/input/input.svelte';
+	import { auth } from '@/stores/auth';
+	import { toast } from 'svelte-sonner';
 
 	let first_name = '';
 	let last_name = '';
@@ -22,14 +24,27 @@
 		// console.log(res)
 
 		const data = await res.json();
-		localStorage.setItem('token', data.token);
 
 		// console.log(data)
 		message = data.message || data.error;
 
-		red = message === data.error;
+		red = !!data.error;
 
-		goto('/')
+		if (res.ok) {
+			// localStorage.setItem('token', data.token); // -> No need for that
+			auth.set({ token: data.token, isLoggedIn: true }); // It will be saved in LocalStorage
+			toast.success('Logged in successfully!');
+			first_name = '';
+			last_name = '';
+			username = '';
+			email = '';
+			password = '';
+			setTimeout(() => {
+				goto('/profile');
+			}, 2000);
+		} else {
+			toast.error(data.error || 'Login failed. Try again.');
+		}
 	}
 </script>
 
