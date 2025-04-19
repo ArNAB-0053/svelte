@@ -1,3 +1,3 @@
-Email - temp@gmail.com
-Username - temp
-Password - temp
+- Email - temp@gmail.com
+- Username - temp
+- Password - temp
