@@ -1,2 +1,3 @@
-Email - test@gmail.com
+Email - temp@gmail.com
+Username - temp
 Password - temp
