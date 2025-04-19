@@ -4,6 +4,7 @@
 	import Input from '@/components/ui/input/input.svelte';
 	import { auth } from '@/stores/auth';
 	import { toast } from 'svelte-sonner';
+	import { X, Check, Loader2 } from '@lucide/svelte';
 
 	let first_name = '';
 	let last_name = '';
@@ -11,56 +12,109 @@
 	let email = '';
 	let password = '';
 	let message = '';
-
 	let red = false;
+	let usernameAvailable: boolean | null = null;
+	let usernameLoading = false;
+	let usernameError: string | null = null;
 
+	// Debounce function to limit API calls
+	let timeout: NodeJS.Timeout | null = null;
+	function debounce(fn: () => void, delay: number) {
+		return () => {
+			if (timeout) clearTimeout(timeout);
+			timeout = setTimeout(fn, delay);
+		};
+	}
+
+	// Check username availability
+	async function checkUsername() {
+		if (!username) {
+			usernameAvailable = null;
+			usernameError = null;
+			return;
+		}
+
+		usernameLoading = true;
+		usernameError = null;
+		try {
+			const res = await fetch('/api/auth/check-username', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ username })
+			});
+
+			const data = await res.json();
+			if (data.error) {
+				usernameAvailable = null;
+				usernameError = data.error;
+			} else {
+				usernameAvailable = data.available ?? false;
+			}
+		} catch (error) {
+			usernameAvailable = null;
+			usernameError = 'Error checking username availability';
+		} finally {
+			usernameLoading = false;
+		}
+	}
+
+	// Debounced version of checkUsername
+	const debouncedCheckUsername = debounce(checkUsername, 500);
+
+	// Handle signup form submission
 	async function handleSignup() {
+		if (usernameAvailable === false || usernameError) {
+			toast.error(usernameError || 'Username is already taken');
+			return;
+		}
+
 		const res = await fetch('/api/auth/signup', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ first_name, last_name, username, email, password })
 		});
 
-		// console.log(res)
-
 		const data = await res.json();
-
-		// console.log(data)
 		message = data.message || data.error;
-
 		red = !!data.error;
 
 		if (res.ok) {
-			// localStorage.setItem('token', data.token); // -> No need for that
-			auth.set({ token: data.token, isLoggedIn: true }); // It will be saved in LocalStorage
-			toast.success('Logged in successfully!');
+			auth.set({ token: data.token, isLoggedIn: true });
+			toast.success('Signed up successfully!');
 			first_name = '';
 			last_name = '';
 			username = '';
 			email = '';
 			password = '';
+			usernameAvailable = null;
+			usernameError = null;
 			setTimeout(() => {
 				goto('/profile');
 			}, 2000);
 		} else {
-			toast.error(data.error || 'Login failed. Try again.');
+			toast.error(data.error || 'Signup failed. Try again.');
 		}
 	}
 </script>
 
 <div class="flex min-h-screen items-center justify-between gap-x-8">
 	<div class="relative w-[50%]">
-		<span class="overflow-hidden">
+		<span
+			class="relative overflow-hidden before:absolute before:inset-0 before:z-10 before:bg-gradient-to-r before:from-black before:to-transparent"
+		>
 			<img
-				src="https://images.unsplash.com/photo-1743102254227-1d3134f39615?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				src="https://images.unsplash.com/photo-1743102254366-8d5bccffebb8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 				alt=""
-				class="h-svh -translate-y-20"
+				class="relative z-0 h-svh object-cover"
 			/>
 		</span>
-		<div class="absolute right-20 top-[40%] z-20 w-full max-w-md">
-			<h2 class="oswald text-end text-5xl font-bold uppercase">Welcome here !</h2>
-			<p class="lora text-md mt-3 text-end italic leading-3">
-				We hope you ready to dive into the world of <span class="text-primary">pictues</span> .
+
+		<div
+			class="absolute right-20 top-[40%] z-20 flex w-full max-w-md flex-col items-end justify-end"
+		>
+			<h2 class="oswald text-end text-5xl font-bold uppercase">Join us today</h2>
+			<p class="lora text-md mt-3 w-[80%] text-end italic leading-4">
+				Discover, share, and download stunning <span class="text-primary">images</span> with ease.
 			</p>
 		</div>
 	</div>
@@ -74,25 +128,62 @@
 			<form on:submit|preventDefault={handleSignup} class="">
 				<div class="flex flex-col gap-y-3 text-white">
 					<span class="flex items-center justify-center gap-x-1">
-						<Input type="first_name" bind:value={first_name} placeholder="First Name" required />
-						<Input type="last_name" bind:value={last_name} placeholder="Last Name" required />
+						<Input
+							type="text"
+							bind:value={first_name}
+							placeholder="First Name"
+							required
+						/>
+						<Input
+							type="text"
+							bind:value={last_name}
+							placeholder="Last Name"
+							required
+						/>
 					</span>
 					<Input type="email" bind:value={email} placeholder="Email" required />
-					<Input type="username" bind:value={username} placeholder="Username" required />
-					<Input type="password" bind:value={password} placeholder="Password" required />
+					
+					<div class="relative">
+						<div
+							class="flex items-center justify-start border rounded-md text-sm gap-x-2 px-3 py-2"
+						>
+							@
+							<input
+								type="text"
+								bind:value={username}
+								on:input={debouncedCheckUsername}
+								placeholder="Username"
+								required
+								class="w-full bg-transparent outline-none border-l pl-2"
+							/>
+							{#if usernameLoading}
+								<Loader2 class="absolute right-2 h-5 w-5 animate-spin text-gray-500" />
+							{:else if usernameAvailable === true}
+								<Check class="absolute right-2 h-5 w-5 text-green-500" />
+							{:else if usernameAvailable === false || usernameError}
+								<X class="absolute right-2 h-5 w-5 text-red-500" />
+							{/if}
+						</div>
+						{#if usernameError}
+							<p class="mt-1 text-sm text-red-500">{usernameError}</p>
+						{/if}
+					</div>
+
+					<Input
+						type="password"
+						bind:value={password}
+						placeholder="Password"
+						required
+					/>
 
 					<span class="my-2 text-center text-sm text-muted-foreground/70">
 						Already have an account ?
 						<a href="/login" class="text-primary underline">Log In</a>
 						now .
 					</span>
-					<Button type="submit" class="lora w-2/3 place-self-center italic">Sign Up</Button>
-
-					<!-- <p class="text-center">created</p> -->
-
-					{#if message}
-						<p class={` ${red? 'text-red-600': 'text-green-600'} text-center mt-1`}>{message}</p>
-					{/if}
+					<Button type="submit" class="lora w-2/3 place-self-center italic">
+						Sign Up
+					</Button>
 				</div>
 			</form>
 		</div>
