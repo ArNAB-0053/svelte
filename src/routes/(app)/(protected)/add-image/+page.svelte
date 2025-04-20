@@ -1,6 +1,6 @@
 <script>
 
-	import PostImage from "../../components/PostImage.svelte";
+	import PostImage from "../../../components/PostImage.svelte";
 
 </script>
 

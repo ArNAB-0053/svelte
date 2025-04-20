@@ -3,7 +3,7 @@
 	import { browser } from '$app/environment';
 	import { jwtDecode } from 'jwt-decode';
 	import { onMount } from 'svelte';
-	import Button from '@/components/ui/button/button.svelte';
+	import Button from '../../../../lib/components/ui/button/button.svelte';
 	import { auth } from '@/stores/auth';
 	import { toast } from 'svelte-sonner';
 
