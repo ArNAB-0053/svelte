@@ -12,6 +12,13 @@ export const GET = async ({url}) => {
 export const POST = async ({ request }) => {
 	const { image } = await request.json();
 	const db = getDb();
-	const result = await db.collection('images').insertOne(image);
+
+	const imageWithTimestamp = {
+		...image,
+		created_at: new Date() // Adds timestamp in ISO format
+	};
+
+	const result = await db.collection('images').insertOne(imageWithTimestamp);
 	return json(result);
 };
+
