@@ -38,7 +38,7 @@
 	<div class="masonry">
 		{#each allAnime as anime}
 			<a
-				href={`/i/${anime.id}`}
+				href={`/i/${anime._id}`}
 				class="mb-6 block break-inside-avoid overflow-hidden rounded-lg shadow-md"
 				sveltekit:prefetch
 			>

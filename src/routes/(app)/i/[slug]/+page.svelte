@@ -5,12 +5,14 @@
 	let isLoading = true;
 	let imageData;
 	const URL = `/api/image?id=${data.slug}`;
+	console.log(data.slug);
+
 	onMount(async () => {
 		try {
 			const response = await fetch(URL);
 			const data = await response.json();
 			imageData = data;
-			console.log(imageData);
+			console.log("RRR", imageData);
 		} catch (e) {
 			console.error(e);
 		} finally {
