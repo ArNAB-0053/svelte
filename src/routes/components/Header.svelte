@@ -1,6 +1,15 @@
 <script lang="ts">
 	import { Button } from '@/components/ui/button';
 	import { auth } from '@/stores/auth';
+	import { goto } from '$app/navigation';
+	let search = '';
+
+	function handleSearch(e: Event) {
+		e.preventDefault();
+		if (search.trim()) {
+			goto(`/q?q=${encodeURIComponent(search.trim())}`);
+		}
+	}
 </script>
 
 <header class="fixed inset-x-0 top-0 z-40 border-b border-border bg-background/60 backdrop-blur-md">
@@ -23,6 +32,21 @@
 				Categories
 			</a>
 		</nav>
+
+		<form on:submit={handleSearch} class="hidden md:flex items-center gap-2">
+			<input
+				type="text"
+				placeholder="Search..."
+				bind:value={search}
+				class="rounded-md border border-border bg-background px-3 py-1.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+			/>
+			<button
+				type="submit"
+				class="rounded-md bg-primary px-4 py-1.5 text-sm font-semibold text-white hover:bg-primary/90"
+			>
+				Search
+			</button>
+		</form>
 
 		<div class="flex items-center justify-end gap-x-2">
 			<a href="/add-image" class="lora hidden gap-3 italic sm:flex">

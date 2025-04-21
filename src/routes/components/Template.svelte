@@ -14,9 +14,11 @@
 
 	export let skip = 0;
 	export let category = '';
+	export let searched = '';
 	export let isCategory = false;
 	export let isNew = false;
 	export let isPopular = false;
+	export let isSearch = false;
 
 	let URL = '/api/images';
 
@@ -27,6 +29,8 @@
 			URL = `/api/images/new?limit=24`;
 		} else if (isPopular) {
 			URL = `/api/images`;
+		} else if (isSearch) {
+			URL = `/api/images/search?q=${searched}`;
 		} else {
 			URL = `/api/images?limit=24&skip=${skip}`;
 		}

@@ -8,6 +8,7 @@
 	import { toast } from 'svelte-sonner';
 	import Sidebar from './Sidebar.svelte';
 	import { User } from '@lucide/svelte';
+	import { user } from '@/stores/user';
 
 	let decodedToken: string | null = $state(null);
 
@@ -52,36 +53,67 @@
 	}
 </script>
 
-<div class="lora mt-20 flex min-h-screen justify-between gap-x-6 px-6 italic lg:px-8">
-	<section class="w-64">
+<div class="mt-24 flex min-h-screen items-start justify-between bg-black px-6 gap-x-10 text-white lg:px-8">
+	<section class="w-64  ">
 		<Sidebar />
 	</section>
 
-	<div class="flex flex-1 items-start justify-center">
-		<div class=" flex w-1/2 flex-col items-start justify-start">
-			{#if currentUser}
-				<h1 class="oswald mb-10 text-4xl font-bold not-italic">Manage your profile data</h1>
+	<div class="h-[80vh] w-[1px] bg-border"></div>
 
-				<h3>Name</h3>
-				<span class="flex w-full items-center justify-start gap-x-2 rounded-lg bg-muted/50 p-2">
-					<User size={16} />
-					<strong>{currentUser.first_name}</strong>
-				</span>
-				<span>
-					Last Name:
-					<strong>{currentUser.last_name}</strong>
-				</span>
-				<span>
-					Email:
-					<strong>{currentUser.email}</strong>
-				</span>
-				<span>
-					Username:
-					<strong>{currentUser.username}</strong>
-				</span>
+	<div class="flex-1 flex items-center justify-center">
+		<div
+			class="w-full max-w-2xl rounded-2xl border border-zinc-800 bg-zinc-900/70 p-8 shadow-2xl backdrop-blur-md"
+		>
+			<!-- Profile Header -->
+			<div class="mb-10 flex items-center gap-6">
+				<!-- Avatar -->
+				<div
+					class="flex h-20 w-20 items-center justify-center rounded-full bg-zinc-800 text-3xl font-bold text-white shadow-inner"
+				>
+					{$user?.first_name?.[0] ?? '?'}
+				</div>
 
-				<Button onclick={handleLogOut} class="mt-12">Log out</Button>
-			{/if}
+				<div>
+					<h2 class="text-3xl font-bold">
+						{$user?.first_name}
+						{currentUser?.last_name}
+					</h2>
+					<p class="text-sm text-zinc-400">{currentUser?.email}</p>
+				</div>
+			</div>
+
+			<!-- Profile Info Section -->
+			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+				<div>
+					<p class="text-sm text-zinc-400">First Name</p>
+					<p class="text-lg font-medium">{currentUser?.first_name}</p>
+				</div>
+
+				<div>
+					<p class="text-sm text-zinc-400">Last Name</p>
+					<p class="text-lg font-medium">{currentUser?.last_name}</p>
+				</div>
+
+				<div>
+					<p class="text-sm text-zinc-400">Email</p>
+					<p class="text-lg font-medium">{currentUser?.email}</p>
+				</div>
+
+				<div>
+					<p class="text-sm text-zinc-400">Username</p>
+					<p class="text-lg font-medium">{currentUser?.username}</p>
+				</div>
+			</div>
+
+			<!-- Logout Button -->
+			<div class="mt-10 text-right">
+				<Button
+					on:click={handleLogOut}
+					class="rounded-xl bg-red-600 px-6 py-2 font-medium text-white transition-all duration-200 hover:bg-red-700"
+				>
+					Log Out
+				</Button>
+			</div>
 		</div>
 	</div>
 </div>

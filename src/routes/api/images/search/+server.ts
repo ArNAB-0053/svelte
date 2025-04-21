@@ -1,30 +1,18 @@
 import { json } from '@sveltejs/kit';
-import { getDb } from '@/server/db';
+import { getDb } from '$lib/server/db';
 
-export async function GET({ url }) {
-    const name = url.searchParams.get("name");
+export const GET = async ({ url }) => {
+	const query = url.searchParams.get('q');
+	const db = getDb();
 
-    const limit = parseInt(url.searchParams.get('limit') || '10'); 
-    const skip = parseInt(url.searchParams.get('skip') || '0');
+	if (!query) {
+		return new Response('Missing search query', { status: 400 });
+	}
 
-    const db = getDb();
+	// Case-insensitive, partial match using RegExp
+	const images = await db.collection('images').find({
+		title: { $regex: query, $options: 'i' }
+	}).toArray();
 
-    if (!name) {
-        return json({ error: "Category is required" }, { status: 400 });
-    }
-
-    if(name === 'all') {
-        return json(await db.collection('images').find().skip(skip).limit(limit).toArray())
-    }
-
-    const images = await db
-        .collection("images")
-        .find({
-            title: { $in: name.toLowerCase() }
-        })
-        .skip(skip)
-        .limit(limit)
-        .toArray();
-
-    return json(images);
-}
+	return json(images);
+};
