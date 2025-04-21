@@ -9,6 +9,7 @@
 				goto('login');
 		}
 	});
+	
 </script>
 
 <div>

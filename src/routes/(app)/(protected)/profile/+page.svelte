@@ -6,6 +6,8 @@
 	import Button from '../../../../lib/components/ui/button/button.svelte';
 	import { auth } from '@/stores/auth';
 	import { toast } from 'svelte-sonner';
+	import Sidebar from './Sidebar.svelte';
+	import { User } from '@lucide/svelte';
 
 	let decodedToken: string | null = $state(null);
 
@@ -49,21 +51,32 @@
 	}
 </script>
 
-<div class="lora mt-20 flex min-h-screen flex-col items-start justify-start px-6 italic lg:px-8">
-	{#if user}
-		<span>
-			First Name:
-			<strong>{user.first_name}</strong>
-		</span>
-		<span>
-			Last Name:
-			<strong>{user.last_name}</strong>
-		</span>
-		<span>
-			Email:
-			<strong>{user.email}</strong>
-		</span>
+<div class="lora mt-20 flex min-h-screen justify-between gap-x-6 px-6 italic lg:px-8">
+	<section class="w-64">
+		<Sidebar />
+	</section>
 
-		<Button onclick={handleLogOut} class="mt-12">Log out</Button>
-	{/if}
+	<div class="flex-1 flex items-start justify-center">
+		<div class=" flex w-1/2 flex-col items-start justify-start">
+			{#if user}
+				<h1 class="oswald mb-10 text-4xl font-bold not-italic">Manage your profile data</h1>
+	
+				<h3>Name</h3>
+				<span class="bg-muted/50 w-full p-2 flex items-center gap-x-2 justify-start rounded-lg">
+					<User size={16} />
+					<strong>{user.first_name}</strong>
+				</span>
+				<span>
+					Last Name:
+					<strong>{user.last_name}</strong>
+				</span>
+				<span>
+					Email:
+					<strong>{user.email}</strong>
+				</span>
+	
+				<Button onclick={handleLogOut} class="mt-12">Log out</Button>
+			{/if}
+		</div>
+	</div>
 </div>

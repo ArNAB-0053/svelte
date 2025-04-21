@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { Download } from '@lucide/svelte';
 	import Sidebar from '../../../components/Sidebar.svelte';
 	import { onMount } from 'svelte';
+
 	export let data;
 	let isLoading = true;
 	let imageData;
@@ -12,14 +14,14 @@
 			const response = await fetch(URL);
 			const data = await response.json();
 			imageData = data;
-			console.log("RRR", imageData);
+			console.log('RRR', imageData);
 		} catch (e) {
 			console.error(e);
 		} finally {
 			isLoading = false;
 		}
 	});
-	console.log(imageData);
+	// console.log(imageData);
 </script>
 
 <div class=" mt-20 flex min-h-screen items-start justify-between gap-x-16 px-6 pb-20 pt-10 lg:px-8">
@@ -44,21 +46,31 @@
 				</span>
 			</div>
 
-			<div class="mt-6 h-[1px] w-full bg-zinc-600/50"></div>
+			<div class="my-6 h-[1px] w-full bg-zinc-600/50"></div>
 
-			<span class="mt-6 w-full">
-				<h1 class="oswald text-bold text-3xl">{imageData.title}</h1>
-				<p class="lora text-bold mt-2 text-sm italic text-white/70">{imageData.description}</p>
-				<span class="mt-5 flex items-center justify-start gap-x-1 text-xs">
-					{#each imageData.categories as category}
-						<p class="rounded-sm bg-black px-1.5 py-1 text-xs text-muted-foreground">{category}</p>
-					{/each}
-				</span>
+			<span class="relative flex w-full items-center justify-between">
+				<div class="flex-1">
+					<h1 class="oswald text-bold text-3xl">{imageData.title}</h1>
+					<p class="lora text-bold mt-2 text-sm italic text-white/70">{imageData.description}</p>
+					<span class="mt-5 flex items-center justify-start gap-x-1 text-xs">
+						{#each imageData.categories as category}
+							<p class="rounded-sm bg-black px-1.5 py-1 text-xs text-muted-foreground">
+								{category}
+							</p>
+						{/each}
+					</span>
+				</div>
+
+				<a
+					href={imageData.image_url}
+					target="_blank"
+					class="lora flex items-center justify-center gap-x-2 rounded-md bg-primary px-8 py-3 text-xl font-semibold italic"
+					download
+				>
+					Download
+					<Download />
+				</a>
 			</span>
 		</div>
 	{/if}
-
-	<!-- {allAnime.id}
-    {allAnime.title}
-    {allAnime.description} -->
 </div>
