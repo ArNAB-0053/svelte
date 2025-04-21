@@ -24,16 +24,17 @@
 	type user = {
 		first_name: string;
 		last_name: string;
+		username: string;
 		email: string;
 	};
 
-	let user: user | null = $state(null);
+	let currentUser: user | null = $state(null);
 	let isLoading: boolean = true;
 
 	onMount(async () => {
 		try {
 			const res = await fetch(`/api/user?email=${decodedToken?.email}`);
-			user = await res.json();
+			currentUser = await res.json();
 			// console.log(user);
 		} catch (error) {
 			console.error(error);
@@ -56,25 +57,29 @@
 		<Sidebar />
 	</section>
 
-	<div class="flex-1 flex items-start justify-center">
+	<div class="flex flex-1 items-start justify-center">
 		<div class=" flex w-1/2 flex-col items-start justify-start">
-			{#if user}
+			{#if currentUser}
 				<h1 class="oswald mb-10 text-4xl font-bold not-italic">Manage your profile data</h1>
-	
+
 				<h3>Name</h3>
-				<span class="bg-muted/50 w-full p-2 flex items-center gap-x-2 justify-start rounded-lg">
+				<span class="flex w-full items-center justify-start gap-x-2 rounded-lg bg-muted/50 p-2">
 					<User size={16} />
-					<strong>{user.first_name}</strong>
+					<strong>{currentUser.first_name}</strong>
 				</span>
 				<span>
 					Last Name:
-					<strong>{user.last_name}</strong>
+					<strong>{currentUser.last_name}</strong>
 				</span>
 				<span>
 					Email:
-					<strong>{user.email}</strong>
+					<strong>{currentUser.email}</strong>
 				</span>
-	
+				<span>
+					Username:
+					<strong>{currentUser.username}</strong>
+				</span>
+
 				<Button onclick={handleLogOut} class="mt-12">Log out</Button>
 			{/if}
 		</div>

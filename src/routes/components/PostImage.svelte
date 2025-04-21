@@ -4,10 +4,14 @@
 	import Button from '@/components/ui/button/button.svelte';
 	import { goto } from '$app/navigation';
 	import { toast } from 'svelte-sonner';
+	import { user } from '@/stores/user';
+
+	// console.log($user?.username)
 
 	let image = {
 		title: '',
 		description: '',
+		username: $user?.username,
 		image_url: '',
 		categories: ''
 	};
@@ -33,6 +37,7 @@
 			image = {
 				title: '',
 				description: '',
+				username: '',
 				image_url: '',
 				categories: ''
 			};
