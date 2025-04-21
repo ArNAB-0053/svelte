@@ -16,6 +16,8 @@
 	let Categories: Category[] = [];
 	let isLoading = true;
 
+	// export let handleCategories;
+
 	const URL = '/api/categories?limit=12';
 
 	onMount(async () => {
@@ -66,16 +68,18 @@
 		<p class="text-muted-foreground">Loading anime list...</p>
 	{:else}
 		{#each Categories as category}
-			<swiper-slide class="w-[10rem] overflow-hidden">
-				<img
-					class="aspect-video w-full object-cover"
-					src={category.image_url.concat('?auto=format&fit=crop&w=600&h=600&dpr=2')}
-					alt={category?.title ?? 'Anime'}
-				/>
-				<div class="absolute inset-0 h-full w-full bg-black/30"></div>
-				<p class="absolute line-clamp-1 text-xs font-bold uppercase text-white ">
-					{category.title}
-				</p>
+			<swiper-slide class="w-[10rem] ">
+				<a  href={`?category=${category.title.toLowerCase()}`} class="overflow-hidden w-full relative flex items-center justify-center">
+					<img
+						class="aspect-video w-full object-cover"
+						src={category.image_url.concat('?auto=format&fit=crop&w=600&h=600&dpr=2')}
+						alt={category?.title ?? 'Anime'}
+					/>
+					<div class="absolute inset-0 h-full w-full bg-black/30"></div>
+					<p class="absolute line-clamp-1 text-xs font-bold uppercase text-white">
+						{category.title}
+					</p>
+				</a>
 			</swiper-slide>
 		{/each}
 	{/if}

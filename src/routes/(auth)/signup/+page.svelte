@@ -213,7 +213,7 @@
 	</div>
 
 	{#if showOTPModal}
-		<div class="absolute inset-0 z-20 bg-black/20 backdrop-blur-sm">
+		<div class="absolute inset-0 z-50 bg-black/20 backdrop-blur-sm">
 			<VerifyOtp
 				email={otpEmail}
 				{tempToken}

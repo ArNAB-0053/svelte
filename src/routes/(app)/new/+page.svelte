@@ -10,5 +10,5 @@
 		images for you .
 	</h2>
 
-    <Template  />
+    <Template  category={'all'} isNew={true}/>
 </div>

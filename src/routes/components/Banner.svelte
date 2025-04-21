@@ -5,16 +5,26 @@
 
 	register();
 
-	let { animeList, isLoading }: { animeList: any[]; isLoading: boolean } = $props();
+	export let animeList: any[];
+	export let isLoading: boolean;
+	export let handleClick;
+
+	// let { animeList, isLoading }: { animeList: any[]; isLoading: boolean } = $props();
 </script>
 
-<div class="mt-24 mb-6 px-6 lg:px-8 flex items-center justify-between">
-	<h1 class="text-2xl font-black lora italic ">Finding your <strong class="oswald not-italic">categories . . .</strong></h1>
+<div class="mb-6 mt-24 flex items-center justify-between px-6 lg:px-8">
+	<h1 class="lora text-2xl font-black italic">
+		Finding your <strong class="oswald not-italic">categories . . .</strong>
+	</h1>
 	<span class="flex items-center justify-end gap-x-2">
-		<div class="swiper-button-prev cursor-pointer bg-muted/70 hover:bg-muted text-muted-foreground hover:text-white rounded-sm transition-all duration-200 ease-in-out">
+		<div
+			class="swiper-button-prev cursor-pointer rounded-sm bg-muted/70 text-muted-foreground transition-all duration-200 ease-in-out hover:bg-muted hover:text-white"
+		>
 			<ChevronLeft size={30} />
 		</div>
-		<div class="swiper-button-next cursor-pointer bg-muted/70 hover:bg-muted text-muted-foreground hover:text-white rounded-sm transition-all duration-200 ease-in-out">
+		<div
+			class="swiper-button-next cursor-pointer rounded-sm bg-muted/70 text-muted-foreground transition-all duration-200 ease-in-out hover:bg-muted hover:text-white"
+		>
 			<ChevronRight size={30} />
 		</div>
 	</span>
@@ -38,7 +48,9 @@
 		{:else}
 			{#each animeList as anime}
 				<swiper-slide>
-					<div class="relative h-[55vh] w-full overflow-hidden rounded-lg">
+					<a href={`categories?category=${anime.title.toLowerCase()}`}
+						class="relative h-[55vh] w-full overflow-hidden rounded-lg"
+					>
 						<img
 							class="absolute right-0 top-0 h-full w-[73vw] object-cover"
 							src={anime.image_url.concat('?auto=format&fit=crop&w=600&h=600&dpr=2')}
@@ -53,21 +65,23 @@
 							class="relative bottom-0 z-10 flex h-full max-w-md flex-col justify-end px-8 pb-4 text-white"
 						>
 							<div>
-								<h1 class="mb-4 text-2xl font-bold text-foreground oswald">{anime.title}</h1>
+								<h1 class="oswald mb-4 text-2xl font-bold text-foreground">{anime.title}</h1>
 
 								<!-- <div class="mb-2 flex gap-x-1 text-muted-foreground/80">
-								{#each anime.tags as tag}
-									<p>{tag} |</p>
-								{/each}
-							</div> -->
+									{#each anime.tags as tag}
+										<p>{tag} |</p>
+									{/each}
+								</div> -->
 
-								<p class="mb-5 line-clamp-2 text-sm leading-5 text-secondary-foreground/80 lora italic">
+								<p
+									class="lora mb-5 line-clamp-2 text-sm italic leading-5 text-secondary-foreground/80"
+								>
 									{anime.description}
 								</p>
 							</div>
 							<!-- <button class="w-[6rem] rounded-md py-1 bg-primary text-white text-sm">Learn More</button> -->
 						</div>
-					</div>
+					</a>
 				</swiper-slide>
 			{/each}
 		{/if}

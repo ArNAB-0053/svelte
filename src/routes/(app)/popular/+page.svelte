@@ -10,5 +10,5 @@
 		images for you .
 	</h2>
 
-	<Template skip=24 />
+	<Template skip=24 category={'all'} isPopular={true}/>
 </div>

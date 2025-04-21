@@ -3,7 +3,7 @@
 	import { auth } from '@/stores/auth';
 </script>
 
-<header class="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/60 backdrop-blur-md">
+<header class="fixed inset-x-0 top-0 z-40 border-b border-border bg-background/60 backdrop-blur-md">
 	<div class="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
 		<a
 			href="/"

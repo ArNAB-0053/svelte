@@ -50,8 +50,8 @@
 				<h1 class="oswald text-bold text-3xl">{imageData.title}</h1>
 				<p class="lora text-bold mt-2 text-sm italic text-white/70">{imageData.description}</p>
 				<span class="mt-5 flex items-center justify-start gap-x-1 text-xs">
-					{#each imageData.tags as tag}
-						<p class="rounded-sm bg-black px-1.5 py-1 text-xs text-muted-foreground">{tag}</p>
+					{#each imageData.categories as category}
+						<p class="rounded-sm bg-black px-1.5 py-1 text-xs text-muted-foreground">{category}</p>
 					{/each}
 				</span>
 			</span>

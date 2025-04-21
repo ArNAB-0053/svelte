@@ -162,7 +162,7 @@
 	<div class="bg-muted/80 border border-gray-600 p-8 rounded-xl w-full max-w-md shadow-lg text-white">
 		<div class="flex flex-col items-center text-center">
 			<Mail size={40} strokeWidth={3} />
-			<h1 class="text-3xl font-bold mb-1 flex items-center gap-x-2 oswald">
+			<h1 class="lg:text-2xl xl:text-3xl font-bold mb-1 flex items-center gap-x-2 oswald">
 				Verify Your Email
 			</h1>
 			<div class="h-1 w-[50px] my-4 bg-white"></div>
