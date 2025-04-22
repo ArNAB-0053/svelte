@@ -3,8 +3,8 @@
 	import Banner from "../components/Banner.svelte";
 	import ImagesHome from "../components/ImagesHome.svelte";
 
-	let animeList = [];
-	let topAnimeList = [];
+	let imagesList = [];
+	let topimagesList = [];
 	let isLoading = true;
 
 	const animeURL = {
@@ -19,8 +19,8 @@
 				fetch(animeURL.all).then((response) => response.json())
 			]);
 
-			topAnimeList = topRes;
-			animeList = allRes;
+			topimagesList = topRes;
+			imagesList = allRes;
 		} catch (error) {
 			console.error('Failed to fetch anime:', error);
 		} finally {
@@ -30,7 +30,7 @@
 </script>
 
 <!-- <Header/> -->
-<Banner animeList={topAnimeList} {isLoading} />
+<Banner imagesList={topimagesList} {isLoading} />
 
 <main class="px-6 lg:px-8 mt-8">
     <!-- <AllAnime /> -->

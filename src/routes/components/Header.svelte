@@ -17,9 +17,11 @@
 	let showMenu = false;
 </script>
 
-<header class="fixed inset-x-0 top-0 z-40 border-b border-border px-4 sm:px-6 lg:px-8 bg-background/60 backdrop-blur-md">
+<header
+	class="fixed inset-x-0 top-0 z-40 border-b border-border bg-background/60 px-4 backdrop-blur-md sm:px-6 lg:px-8"
+>
 	<!-- LG -->
-	<div class="flex h-16 items-center justify-between ">
+	<div class="flex h-16 items-center justify-between">
 		<a
 			href="/"
 			class="oswald flex items-center justify-start text-lg font-bold tracking-tight text-foreground"
@@ -48,7 +50,7 @@
 					type="text"
 					placeholder="Search..."
 					bind:value={search}
-					class="flex-1 bg-transparent text-sm outline-none"
+					class="flex-1 bg-transparent text-[0.8rem] outline-none"
 				/>
 				<button
 					type="submit"
@@ -57,7 +59,7 @@
 					<Search size={18} />
 				</button>
 			</form>
-			<a href="/add-image" class="lora hidden gap-3 italic sm:flex">
+			<a href="/add-image" class="lora hidden gap-3 italic sm:flex select-none">
 				<Button class="rounded-md ">
 					<Plus />
 					Add Image
@@ -67,14 +69,14 @@
 			{#if $auth.token && $auth.isLoggedIn}
 				<a
 					href="/profile"
-					class="lora hidden h-8 aspect-square gap-3 rounded-full border-2 border-white bg-muted italic sm:flex"
+					class="lora hidden aspect-square h-8 gap-3 rounded-full border-2 border-white bg-muted italic sm:flex"
 				>
-					<button class="h-full w-full">
+					<button class="h-full w-full select-none">
 						{$user?.first_name[0]}
 					</button>
 				</a>
 			{:else}
-				<a href="/login" class="lora hidden gap-3 italic sm:flex">
+				<a href="/login" class="lora hidden gap-3 italic sm:flex select-none">
 					<Button>Login</Button>
 				</a>
 			{/if}
@@ -111,25 +113,28 @@
 			{/if}
 		</div>
 	</div>
-	
+
 	<!-- MD -->
-	<div class="md:flex lg:hidden hidden gap-x-3 mt-1 bg-muted/80 px-5 py-4 rounded-lg mb-4">
-		<form on:submit={handleSearch} class=" flex w-full overflow-hidden rounded-lg border border-zinc-700/60 py-1 pl-4 pr-2 items-center justify-between">
+	<div class="mb-4 mt-1 hidden gap-x-3 rounded-lg bg-muted/80 px-5 py-4 md:flex lg:hidden">
+		<form
+			on:submit={handleSearch}
+			class=" flex w-full items-center justify-between overflow-hidden rounded-lg border border-zinc-700/60 py-1 pl-4 pr-2"
+		>
 			<input
 				type="text"
 				placeholder="Search..."
 				bind:value={search}
-				class="bg-transparent text-sm outline-none"
+				class="bg-transparent text-[0.8rem] outline-none"
 			/>
 			<button
 				type="submit"
-				class="ease flex  items-center justify-center rounded-md p-1.5 text-gray-300 transition-all duration-200 hover:bg-gray-400/20 hover:text-gray-300/80"
+				class="ease flex items-center justify-center rounded-md p-1.5 text-gray-300 transition-all duration-200 hover:bg-gray-400/20 hover:text-gray-300/80"
 			>
 				<Search size={18} />
 			</button>
 		</form>
 
-		<a href="/add-image" class="lora gap-3 italic flex">
+		<a href="/add-image" class="lora flex gap-3 italic select-none">
 			<Button class="rounded-md ">
 				<Plus />
 				Add Image
@@ -139,18 +144,17 @@
 		{#if $auth.token && $auth.isLoggedIn}
 			<a
 				href="/profile"
-				class=" lora hidden h-8 aspect-square gap-3 rounded-full border-2 border-white bg-muted italic sm:flex"
+				class=" lora hidden aspect-square h-8 gap-3 rounded-full border-2 border-white bg-muted italic sm:flex"
 			>
-				<button class="h-full w-full">
+				<button class="h-full w-full select-none">
 					{$user?.first_name[0]}
 				</button>
 			</a>
 		{:else}
-			<a href="/login" class="lora hidden gap-3 italic sm:flex">
+			<a href="/login" class="lora hidden gap-3 italic sm:flex select-none">
 				<Button>Login</Button>
 			</a>
 		{/if}
-
 	</div>
 
 	<!-- SM -->
@@ -179,7 +183,7 @@
 						type="text"
 						placeholder="Search..."
 						bind:value={search}
-						class="bg-transparent text-sm outline-none"
+						class="bg-transparent text-[0.8rem] outline-none"
 					/>
 					<button
 						type="submit"
@@ -191,7 +195,7 @@
 
 				<div class="my-4 h-[1px] w-full bg-border"></div>
 
-				<a href="/add-image" class="lora flex w-full gap-3 italic">
+				<a href="/add-image" class="lora flex w-full gap-3 italic select-none">
 					<Button class="w-full rounded-md">
 						<Plus />
 						Add Image
@@ -211,7 +215,7 @@
 					</a>
 				{:else}
 					<div class="my-4 h-[2px] w-1/2 place-self-center bg-white"></div>
-					<a href="/login" class="lora flex w-full gap-3 italic">
+					<a href="/login" class="lora flex w-full gap-3 italic select-none">
 						<Button class="w-full ">Login</Button>
 					</a>
 				{/if}
@@ -219,3 +223,16 @@
 		</div>
 	{/if}
 </header>
+
+<style>
+	form {
+		-webkit-user-select: none; 
+		-ms-user-select: none; 
+		user-select: none; 
+	}
+
+	form input {
+		font-family: 'lora', sans-serif;
+		font-style: italic;
+	}
+</style>

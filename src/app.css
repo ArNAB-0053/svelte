@@ -71,3 +71,10 @@
 .lora, p {
   font-family: "Lora", sans-serif;
 }
+
+* {
+  ::selection {
+    color: black;
+    background-color: white;
+  }
+}

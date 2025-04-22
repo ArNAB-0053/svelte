@@ -64,7 +64,6 @@
 		<div
 			class="w-full max-w-2xl rounded-2xl border border-zinc-800 bg-zinc-900/70 p-8 shadow-2xl backdrop-blur-md"
 		>
-			<!-- Profile Header -->
 			<div class="mb-10 flex items-center gap-6">
 				<!-- Avatar -->
 				<div
@@ -82,7 +81,6 @@
 				</div>
 			</div>
 
-			<!-- Profile Info Section -->
 			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
 				<div>
 					<p class="text-sm text-zinc-400">First Name</p>
@@ -96,7 +94,7 @@
 
 				<div>
 					<p class="text-sm text-zinc-400">Email</p>
-					<p class="text-lg font-medium">{currentUser?.email}</p>
+					<p class="text-lg font-medium truncate">{currentUser?.email}</p>
 				</div>
 
 				<div>

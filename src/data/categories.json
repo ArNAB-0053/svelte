@@ -1,103 +1,1148 @@
-[
-    {
-      "title": "Sea",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
-      "description": "Explore the endless beauty of the sea, from waves to shorelines."
-    },
-    {
-      "title": "Mountains",
-      "image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-      "description": "Majestic peaks and alpine views await in our mountain collection."
-    },
-    {
-      "title": "Desert",
-      "image_url": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-      "description": "Golden sands, vast dunes, and the warmth of the desert sun."
-    },
-    {
-      "title": "Forest",
-      "image_url": "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
-      "description": "Wander through dense forests, where nature thrives untouched."
-    },
-    {
-      "title": "Flowers",
-      "image_url": "https://images.unsplash.com/photo-1498654200842-41069d3dd3be",
-      "description": "From tulips to cherry blossoms, embrace the colors of nature."
-    },
-    {
-      "title": "City",
-      "image_url": "https://images.unsplash.com/photo-1473654729523-203e25dfda10",
-      "description": "Urban life and cityscapes from around the globe."
-    },
-    {
-      "title": "Sunset",
-      "image_url": "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368",
-      "description": "Golden hour skies and dreamy horizons to calm your soul."
-    },
-    {
-      "title": "Night",
-      "image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-      "description": "Night skies, star trails, and dreamy moonlit scenes."
-    },
-    {
-      "title": "Winter",
-      "image_url": "https://images.unsplash.com/photo-1489587021521-5e50c229c53a",
-      "description": "Snow-covered landscapes and cozy vibes for chilly days."
-    },
-    {
-      "title": "Spring",
-      "image_url": "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6",
-      "description": "Fresh blooms and vibrant greens of the spring season."
-    },
-    {
-      "title": "Autumn",
-      "image_url": "https://images.unsplash.com/photo-1446034295857-c39f8844fad4",
-      "description": "Fall leaves, warm tones, and the cozy season of change."
-    },
-    {
-      "title": "Beach",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
-      "description": "Sandy shores, crystal waves, and vacation dreams."
-    },
-    {
-      "title": "Architecture",
-      "image_url": "https://images.unsplash.com/photo-1504087697493-573f3a5c13c5",
-      "description": "Explore modern, classic, and urban architecture."
-    },
-    {
-      "title": "Animals",
-      "image_url": "https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0",
-      "description": "Wildlife and pets captured in their purest forms."
-    },
-    {
-      "title": "Travel",
-      "image_url": "https://images.unsplash.com/photo-1526481280690-7bdfd8f90a4f",
-      "description": "Wanderlust moments from around the world."
-    },
-    {
-      "title": "Adventure",
-      "image_url": "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a",
-      "description": "Thrilling scenes from hikes, climbs, and explorations."
-    },
-    {
-      "title": "Lakes",
-      "image_url": "https://images.unsplash.com/photo-1487730116645-74489c95b41b",
-      "description": "Calm waters, mirrored skies, and lakeside peace."
-    },
-    {
-      "title": "Sky",
-      "image_url": "https://images.unsplash.com/photo-1493612276216-ee3925520721",
-      "description": "Day or night, the sky offers a canvas of wonder."
-    },
-    {
-      "title": "Countryside",
-      "image_url": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
-      "description": "Charming farms, barns, and rolling rural views."
-    },
-    {
-      "title": "Abstract",
-      "image_url": "https://images.unsplash.com/photo-1581291519195-ef11498d1cf5",
-      "description": "Artistic, minimal, and surreal visuals to inspire."
-    }
-  ]
-  
+[{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89363"
+  },
+  "serial": 1,
+  "title": "Sunset Over Mountains",
+  "description": "A breathtaking view of the sun setting behind majestic mountain peaks.",
+  "image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+  "categories": [
+    "sunset",
+    "mountains",
+    "nature",
+    "landscape"
+  ],
+  "created_at": {
+    "$date": "2023-06-15T14:32:18.235Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89364"
+  },
+  "serial": 2,
+  "title": "City Skyline at Night",
+  "description": "The city lights illuminate the skyline under a starry night.",
+  "image_url": "https://images.unsplash.com/photo-1493612276216-ee3925520721",
+  "categories": [
+    "city",
+    "night",
+    "skyline",
+    "urban"
+  ],
+  "created_at": {
+    "$date": "2023-07-02T21:45:33.128Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89365"
+  },
+  "serial": 3,
+  "title": "Forest Trail",
+  "description": "A serene path winding through a dense forest.",
+  "image_url": "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+  "categories": [
+    "forest",
+    "trail",
+    "trees",
+    "nature"
+  ],
+  "created_at": {
+    "$date": "2023-05-18T09:12:42.976Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89366"
+  },
+  "serial": 4,
+  "title": "Desert Dunes",
+  "description": "Golden sand dunes under the clear blue sky.",
+  "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+  "categories": [
+    "desert",
+    "dunes",
+    "sand",
+    "landscape",
+    "sky"
+  ],
+  "created_at": {
+    "$date": "2023-08-03T16:54:21.543Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89367"
+  },
+  "serial": 5,
+  "title": "Snowy Mountain",
+  "description": "Snow-covered mountain peaks touching the clouds.",
+  "image_url": "https://images.unsplash.com/photo-1705942670348-4e6fb78fca49",
+  "categories": [
+    "snow",
+    "mountains",
+    "winter",
+    "cold"
+  ],
+  "created_at": {
+    "$date": "2023-12-12T11:38:07.321Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89368"
+  },
+  "serial": 6,
+  "title": "Ocean Waves",
+  "description": "Powerful waves crashing onto the shore.",
+  "image_url": "https://images.unsplash.com/photo-1495344517868-8ebaf0a2044a",
+  "categories": [
+    "ocean",
+    "waves",
+    "beach",
+    "water",
+    "sea"
+  ],
+  "created_at": {
+    "$date": "2023-07-25T19:01:45.289Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89369"
+  },
+  "serial": 7,
+  "title": "Autumn Leaves",
+  "description": "Colorful leaves falling in an autumn forest.",
+  "image_url": "https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce",
+  "categories": [
+    "autumn",
+    "leaves",
+    "forest",
+    "fall"
+  ],
+  "created_at": {
+    "$date": "2023-10-15T14:27:36.845Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8936a"
+  },
+  "serial": 8,
+  "title": "Starry Night Sky",
+  "description": "A clear night sky filled with stars.",
+  "image_url": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+  "categories": [
+    "stars",
+    "night",
+    "sky",
+    "space"
+  ],
+  "created_at": {
+    "$date": "2023-09-05T02:14:59.432Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8936b"
+  },
+  "serial": 9,
+  "title": "Rainy Window",
+  "description": "Raindrops on a window pane during a storm.",
+  "image_url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+  "categories": [
+    "rain",
+    "window",
+    "storm",
+    "moody"
+  ],
+  "created_at": {
+    "$date": "2023-11-18T08:33:12.765Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8936c"
+  },
+  "serial": 10,
+  "title": "Lush Green Field",
+  "description": "A vast field of green grass under a blue sky.",
+  "image_url": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
+  "categories": [
+    "field",
+    "grass",
+    "green",
+    "nature",
+    "countryside"
+  ],
+  "created_at": {
+    "$date": "2023-04-29T13:47:23.912Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8936d"
+  },
+  "serial": 11,
+  "title": "Modern Architecture",
+  "description": "A sleek modern building with glass facades.",
+  "image_url": "https://images.unsplash.com/photo-1491553895911-0055eca6402d",
+  "categories": [
+    "architecture",
+    "modern",
+    "building",
+    "urban",
+    "city"
+  ],
+  "created_at": {
+    "$date": "2023-08-17T10:21:54.378Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8936e"
+  },
+  "serial": 12,
+  "title": "Ancient Temple",
+  "description": "An old temple standing the test of time.",
+  "image_url": "https://images.unsplash.com/photo-1502082553048-f009c37129b9",
+  "categories": [
+    "temple",
+    "ancient",
+    "heritage",
+    "historic",
+    "architecture"
+  ],
+  "created_at": {
+    "$date": "2023-05-30T17:09:42.651Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8936f"
+  },
+  "serial": 13,
+  "title": "City Street",
+  "description": "A bustling city street filled with people and cars.",
+  "image_url": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+  "categories": [
+    "street",
+    "city",
+    "urban",
+    "busy"
+  ],
+  "created_at": {
+    "$date": "2023-09-20T15:36:47.123Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89370"
+  },
+  "serial": 14,
+  "title": "Bridge Over River",
+  "description": "A historic bridge spanning across a calm river.",
+  "image_url": "https://images.unsplash.com/photo-1695116450441-56b1fdf71ddd",
+  "categories": [
+    "bridge",
+    "river",
+    "historic",
+    "landmark",
+    "architecture"
+  ],
+  "created_at": {
+    "$date": "2023-06-27T11:53:29.876Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89371"
+  },
+  "serial": 15,
+  "title": "Skyscraper View",
+  "description": "Looking up at towering skyscrapers against the sky.",
+  "image_url": "https://images.unsplash.com/photo-1499914485622-a88fac536970",
+  "categories": [
+    "skyscraper",
+    "architecture",
+    "urban",
+    "buildings",
+    "city"
+  ],
+  "created_at": {
+    "$date": "2023-07-09T18:24:51.347Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89372"
+  },
+  "serial": 16,
+  "title": "Vintage Car",
+  "description": "A classic vintage car parked on the street.",
+  "image_url": "https://images.unsplash.com/photo-1504215680853-026ed2a45def",
+  "categories": [
+    "car",
+    "vintage",
+    "classic",
+    "automobile",
+    "travel"
+  ],
+  "created_at": {
+    "$date": "2023-08-22T12:17:33.589Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89373"
+  },
+  "serial": 17,
+  "title": "Mountain Lake",
+  "description": "A tranquil lake surrounded by mountains.",
+  "image_url": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
+  "categories": [
+    "lake",
+    "mountains",
+    "peaceful",
+    "nature",
+    "water"
+  ],
+  "created_at": {
+    "$date": "2023-06-05T07:48:19.234Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89374"
+  },
+  "serial": 18,
+  "title": "City Park",
+  "description": "A green park in the middle of the city.",
+  "image_url": "https://images.unsplash.com/photo-1668009219418-4ece0d9e36c4",
+  "categories": [
+    "park",
+    "city",
+    "green",
+    "urban",
+    "nature"
+  ],
+  "created_at": {
+    "$date": "2023-05-11T14:39:27.876Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89375"
+  },
+  "serial": 19,
+  "title": "Desert Road",
+  "description": "A long road stretching through the desert.",
+  "image_url": "https://images.unsplash.com/photo-1524639099061-f8beec2b7538",
+  "categories": [
+    "road",
+    "desert",
+    "travel",
+    "landscape"
+  ],
+  "created_at": {
+    "$date": "2023-09-17T08:52:14.432Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89376"
+  },
+  "serial": 20,
+  "title": "Foggy Forest",
+  "description": "A dense forest enveloped in fog.",
+  "image_url": "https://images.unsplash.com/photo-1503437313881-503a91226402",
+  "categories": [
+    "forest",
+    "fog",
+    "misty",
+    "mysterious",
+    "nature"
+  ],
+  "created_at": {
+    "$date": "2023-11-02T05:19:36.729Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89377"
+  },
+  "serial": 21,
+  "title": "Sunrise Over Ocean",
+  "description": "The sun rising over the calm ocean waters.",
+  "image_url": "https://images.unsplash.com/photo-1493558103817-58b2924bce98",
+  "categories": [
+    "sunrise",
+    "ocean",
+    "morning",
+    "sea",
+    "water"
+  ],
+  "created_at": {
+    "$date": "2023-07-31T06:05:48.312Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89378"
+  },
+  "serial": 22,
+  "title": "Dark City",
+  "description": "The city transitioning from day to night.",
+  "image_url": "https://images.unsplash.com/photo-1720387819129-5290ded9c395",
+  "categories": [
+    "city",
+    "twilight",
+    "nightfall",
+    "urban",
+    "night"
+  ],
+  "created_at": {
+    "$date": "2023-10-07T19:42:31.876Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89379"
+  },
+  "serial": 23,
+  "title": "Countryside Road",
+  "description": "A winding road through the countryside.",
+  "image_url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
+  "categories": [
+    "road",
+    "countryside",
+    "nature",
+    "travel",
+    "rural"
+  ],
+  "created_at": {
+    "$date": "2023-05-25T11:28:43.519Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8937a"
+  },
+  "serial": 24,
+  "title": "Snowy Path",
+  "description": "A path covered in fresh snow.",
+  "image_url": "https://images.unsplash.com/photo-1516575150278-77136aed6920",
+  "categories": [
+    "snow",
+    "path",
+    "winter",
+    "cold",
+    "nature"
+  ],
+  "created_at": {
+    "$date": "2024-01-08T16:29:57.241Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8937b"
+  },
+  "serial": 25,
+  "title": "Rocky Coastline",
+  "description": "Waves crashing against a rocky shore.",
+  "image_url": "https://images.unsplash.com/photo-1471922694854-ff1b63b20054",
+  "categories": [
+    "coast",
+    "rocks",
+    "waves",
+    "beach",
+    "sea"
+  ],
+  "created_at": {
+    "$date": "2023-08-11T12:37:49.658Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8937c"
+  },
+  "serial": 26,
+  "title": "Urban Alley",
+  "description": "A narrow alley between city buildings.",
+  "image_url": "https://images.unsplash.com/photo-1505782215-3f12c6c3e45f",
+  "categories": [
+    "alley",
+    "urban",
+    "street",
+    "architecture",
+    "city"
+  ],
+  "created_at": {
+    "$date": "2023-09-26T14:18:22.394Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8937d"
+  },
+  "serial": 27,
+  "title": "Mountain Cabin",
+  "description": "A cozy cabin nestled in the mountains.",
+  "image_url": "https://images.unsplash.com/photo-1501854140801-50d01698950b",
+  "categories": [
+    "cabin",
+    "mountains",
+    "wood",
+    "retreat",
+    "cozy"
+  ],
+  "created_at": {
+    "$date": "2023-12-05T09:47:36.123Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8937e"
+  },
+  "serial": 28,
+  "title": "City Bridge",
+  "description": "A bridge connecting two parts of the city.",
+  "image_url": "https://images.unsplash.com/photo-1494522855154-9297ac14b55f",
+  "categories": [
+    "bridge",
+    "city",
+    "river",
+    "architecture",
+    "urban"
+  ],
+  "created_at": {
+    "$date": "2023-08-29T17:53:41.876Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8937f"
+  },
+  "serial": 29,
+  "title": "Desert Sunset",
+  "description": "The sun setting over the desert landscape.",
+  "image_url": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800",
+  "categories": [
+    "desert",
+    "sunset",
+    "landscape",
+    "sand",
+    "golden"
+  ],
+  "created_at": {
+    "$date": "2023-10-22T18:39:27.541Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89380"
+  },
+  "serial": 30,
+  "title": "Forest Waterfall",
+  "description": "A waterfall cascading through the forest.",
+  "image_url": "https://images.unsplash.com/photo-1523224949444-170258978eef",
+  "categories": [
+    "waterfall",
+    "forest",
+    "nature",
+    "stream",
+    "water"
+  ],
+  "created_at": {
+    "$date": "2023-06-19T13:24:51.763Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89381"
+  },
+  "serial": 31,
+  "title": "Tropical Beach",
+  "description": "Crystal clear water and white sands on a tropical beach.",
+  "image_url": "https://images.unsplash.com/photo-1473116763249-2faaef81ccda",
+  "categories": [
+    "beach",
+    "tropical",
+    "ocean",
+    "vacation",
+    "sea"
+  ],
+  "created_at": {
+    "$date": "2023-07-18T10:33:54.219Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89382"
+  },
+  "serial": 32,
+  "title": "Night Campfire",
+  "description": "A warm campfire glowing under the night sky.",
+  "image_url": "https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3",
+  "categories": [
+    "campfire",
+    "night",
+    "outdoor",
+    "travel",
+    "adventure"
+  ],
+  "created_at": {
+    "$date": "2023-09-12T21:16:39.847Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89383"
+  },
+  "serial": 33,
+  "title": "Frozen Lake",
+  "description": "A still lake frozen over during winter.",
+  "image_url": "https://images.unsplash.com/photo-1487730116645-74489c95b41b",
+  "categories": [
+    "lake",
+    "frozen",
+    "winter",
+    "nature",
+    "cold"
+  ],
+  "created_at": {
+    "$date": "2024-01-15T08:52:17.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89384"
+  },
+  "serial": 34,
+  "title": "Windmill Field",
+  "description": "Windmills turning in a vast field.",
+  "image_url": "https://images.unsplash.com/photo-1531863221087-589bd902e048",
+  "categories": [
+    "windmill",
+    "energy",
+    "green",
+    "field",
+    "countryside"
+  ],
+  "created_at": {
+    "$date": "2023-06-22T15:41:28.976Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89385"
+  },
+  "serial": 35,
+  "title": "Canyon View",
+  "description": "A dramatic view into a deep canyon.",
+  "image_url": "https://images.unsplash.com/photo-1470137237906-d8a4f71e1966",
+  "categories": [
+    "canyon",
+    "desert",
+    "hiking",
+    "scenic",
+    "landscape"
+  ],
+  "created_at": {
+    "$date": "2023-09-03T12:19:43.218Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89386"
+  },
+  "serial": 36,
+  "title": "Cherry Blossoms",
+  "description": "Pink cherry blossoms in full bloom.",
+  "image_url": "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6",
+  "categories": [
+    "cherry",
+    "blossom",
+    "spring",
+    "floral",
+    "flowers"
+  ],
+  "created_at": {
+    "$date": "2023-04-12T09:27:38.542Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89387"
+  },
+  "serial": 37,
+  "title": "River Rapids",
+  "description": "Rapid water flowing down a mountain river.",
+  "image_url": "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a",
+  "categories": [
+    "river",
+    "rapids",
+    "nature",
+    "adventure",
+    "water"
+  ],
+  "created_at": {
+    "$date": "2023-08-07T16:42:31.879Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89388"
+  },
+  "serial": 38,
+  "title": "Old Lighthouse",
+  "description": "A lighthouse standing strong by the sea.",
+  "image_url": "https://images.unsplash.com/photo-1491466424936-e304919aada7",
+  "categories": [
+    "lighthouse",
+    "sea",
+    "coast",
+    "navigation",
+    "historic"
+  ],
+  "created_at": {
+    "$date": "2023-07-14T14:38:52.647Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89389"
+  },
+  "serial": 39,
+  "title": "Wheat Field",
+  "description": "A golden wheat field swaying in the breeze.",
+  "image_url": "https://images.unsplash.com/photo-1506808547685-e2ba962ded58",
+  "categories": [
+    "wheat",
+    "farm",
+    "harvest",
+    "golden",
+    "countryside"
+  ],
+  "created_at": {
+    "$date": "2023-08-15T10:29:47.312Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8938a"
+  },
+  "serial": 40,
+  "title": "Jungle Path",
+  "description": "A narrow trail through the dense jungle.",
+  "image_url": "https://images.unsplash.com/photo-1505245208761-ba872912fac0",
+  "categories": [
+    "jungle",
+    "path",
+    "adventure",
+    "exploration",
+    "forest"
+  ],
+  "created_at": {
+    "$date": "2023-05-20T11:36:54.798Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8938b"
+  },
+  "serial": 41,
+  "title": "Foggy Road",
+  "description": "A mysterious road covered in morning fog.",
+  "image_url": "https://images.unsplash.com/photo-1587475051211-2cf215fb51ef",
+  "categories": [
+    "fog",
+    "road",
+    "mystery",
+    "travel",
+    "countryside"
+  ],
+  "created_at": {
+    "$date": "2023-11-08T07:24:19.543Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8938c"
+  },
+  "serial": 42,
+  "title": "Cactus in Bloom",
+  "description": "A cactus with beautiful pink flowers.",
+  "image_url": "https://images.unsplash.com/photo-1519682337058-a94d519337bc",
+  "categories": [
+    "cactus",
+    "flower",
+    "desert",
+    "bloom",
+    "flowers"
+  ],
+  "created_at": {
+    "$date": "2023-05-09T13:51:27.865Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8938d"
+  },
+  "serial": 43,
+  "title": "Winter Cabin",
+  "description": "A small cabin in the snowy woods.",
+  "image_url": "https://images.unsplash.com/photo-1489587021521-5e50c229c53a",
+  "categories": [
+    "cabin",
+    "snow",
+    "cozy",
+    "winter",
+    "woods"
+  ],
+  "created_at": {
+    "$date": "2023-12-18T15:47:34.216Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8938e"
+  },
+  "serial": 44,
+  "title": "Urban Graffiti",
+  "description": "Colorful graffiti art on a city wall.",
+  "image_url": "https://images.unsplash.com/photo-1508057198894-247b23fe5ade",
+  "categories": [
+    "graffiti",
+    "urban",
+    "art",
+    "street",
+    "city"
+  ],
+  "created_at": {
+    "$date": "2023-09-19T14:26:38.753Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8938f"
+  },
+  "serial": 45,
+  "title": "Island Sunset",
+  "description": "Sunset over a peaceful tropical island.",
+  "image_url": "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368",
+  "categories": [
+    "island",
+    "sunset",
+    "tropical",
+    "vacation",
+    "sea"
+  ],
+  "created_at": {
+    "$date": "2023-07-28T19:34:52.146Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89390"
+  },
+  "serial": 46,
+  "title": "City Reflections",
+  "description": "City buildings reflected in calm water.",
+  "image_url": "https://images.unsplash.com/photo-1473654729523-203e25dfda10",
+  "categories": [
+    "reflection",
+    "city",
+    "water",
+    "urban",
+    "architecture"
+  ],
+  "created_at": {
+    "$date": "2023-06-30T16:19:28.543Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89391"
+  },
+  "serial": 47,
+  "title": "Sky Full of Hot Air Balloons",
+  "description": "Dozens of colorful balloons floating in the sky.",
+  "image_url": "https://images.unsplash.com/photo-1486739985386-79e7a118e9a4",
+  "categories": [
+    "balloon",
+    "sky",
+    "festival",
+    "adventure",
+    "travel"
+  ],
+  "created_at": {
+    "$date": "2023-08-25T11:37:46.291Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89392"
+  },
+  "serial": 48,
+  "title": "Autumn Fog",
+  "description": "Thick fog rolling through an autumn forest.",
+  "image_url": "https://images.unsplash.com/photo-1446034295857-c39f8844fad4",
+  "categories": [
+    "fog",
+    "autumn",
+    "forest",
+    "mist",
+    "fall"
+  ],
+  "created_at": {
+    "$date": "2023-10-29T08:53:14.765Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89393"
+  },
+  "serial": 49,
+  "title": "Railway Tracks",
+  "description": "Old railway tracks running through a rural area.",
+  "image_url": "https://images.unsplash.com/photo-1473186505569-9c61870c11f9",
+  "categories": [
+    "railway",
+    "tracks",
+    "travel",
+    "rural",
+    "countryside"
+  ],
+  "created_at": {
+    "$date": "2023-05-27T14:42:33.892Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89394"
+  },
+  "serial": 50,
+  "title": "Ocean Horizon",
+  "description": "Endless ocean meeting the sky at the horizon.",
+  "image_url": "https://images.unsplash.com/photo-1448375240586-882707db888b",
+  "categories": [
+    "ocean",
+    "horizon",
+    "blue",
+    "calm",
+    "sea"
+  ],
+  "created_at": {
+    "$date": "2023-06-08T15:21:47.329Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89395"
+  },
+  "serial": 51,
+  "title": "Star Trails",
+  "description": "Long exposure of stars moving across the sky.",
+  "image_url": "https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45",
+  "categories": [
+    "stars",
+    "night",
+    "long exposure",
+    "sky",
+    "space"
+  ],
+  "created_at": {
+    "$date": "2023-09-08T02:37:41.215Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89396"
+  },
+  "serial": 52,
+  "title": "Countryside Barn",
+  "description": "An old barn standing in the countryside.",
+  "image_url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
+  "categories": [
+    "barn",
+    "farm",
+    "countryside",
+    "rustic",
+    "rural"
+  ],
+  "created_at": {
+    "$date": "2023-05-15T09:43:16.547Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89397"
+  },
+  "serial": 53,
+  "title": "Mountain Reflection",
+  "description": "A mountain perfectly mirrored in a still lake.",
+  "image_url": "https://images.unsplash.com/photo-1573155993874-d5d48af862ba",
+  "categories": [
+    "reflection",
+    "mountain",
+    "lake",
+    "scenic",
+    "water"
+  ],
+  "created_at": {
+    "$date": "2023-06-12T10:35:41.963Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89398"
+  },
+  "serial": 54,
+  "title": "Colorful Tulip Field",
+  "description": "A wide field full of blooming tulips.",
+  "image_url": "https://images.unsplash.com/photo-1498654200842-41069d3dd3be",
+  "categories": [
+    "tulip",
+    "field",
+    "flower",
+    "spring",
+    "flowers"
+  ],
+  "created_at": {
+    "$date": "2023-04-17T11:28:37.421Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d89399"
+  },
+  "serial": 55,
+  "title": "Modern Train Station",
+  "description": "A sleek, futuristic train station interior.",
+  "image_url": "https://images.unsplash.com/photo-1504087697493-573f3a5c13c5",
+  "categories": [
+    "train",
+    "station",
+    "modern",
+    "architecture",
+    "travel"
+  ],
+  "created_at": {
+    "$date": "2023-08-19T13:47:28.937Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8939a"
+  },
+  "serial": 56,
+  "title": "Sunlight Through Trees",
+  "description": "Golden sunlight piercing through forest trees.",
+  "image_url": "https://images.unsplash.com/photo-1485067801970-70573e3f77d0",
+  "categories": [
+    "sunlight",
+    "forest",
+    "trees",
+    "morning",
+    "nature"
+  ],
+  "created_at": {
+    "$date": "2023-05-23T07:43:19.872Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8939b"
+  },
+  "serial": 57,
+  "title": "Highway Lights",
+  "description": "Headlights and taillights streaking across a highway.",
+  "image_url": "https://images.unsplash.com/photo-1685216037287-c9c70a919a3e",
+  "categories": [
+    "highway",
+    "lights",
+    "night",
+    "traffic",
+    "city"
+  ],
+  "created_at": {
+    "$date": "2023-10-05T21:38:47.623Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8939c"
+  },
+  "serial": 58,
+  "title": "Alpine Meadow",
+  "description": "A lush green meadow surrounded by alpine peaks.",
+  "image_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
+  "categories": [
+    "meadow",
+    "alps",
+    "flowers",
+    "mountains",
+    "nature"
+  ],
+  "created_at": {
+    "$date": "2023-06-25T12:28:36.741Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8939d"
+  },
+  "serial": 59,
+  "title": "Cozy Reading Nook",
+  "description": "A warm and inviting corner for reading books.",
+  "image_url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af",
+  "categories": [
+    "cozy",
+    "reading",
+    "interior",
+    "books",
+    "home"
+  ],
+  "created_at": {
+    "$date": "2023-09-28T14:15:29.872Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6805d2f28eef8de785d8939e"
+  },
+  "serial": 60,
+  "title": "City from Above",
+  "description": "A drone's view of a sprawling city.",
+  "image_url": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df",
+  "categories": [
+    "aerial",
+    "city",
+    "skyline",
+    "urban",
+    "architecture"
+  ],
+  "created_at": {
+    "$date": "2023-07-12T09:53:21.457Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "680775b3f7dd7b9d70214bcc"
+  },
+  "title": "A SumUp card",
+  "description": "A SumUp card reader is placed on a table, ready to accept contactless payments. The setup is ideal for small businesses and cafés, offering a sleek and efficient way for entrepreneurs to accept payments.",
+  "username": "temp",
+  "image_url": "https://images.unsplash.com/photo-1726064855988-1e4deb0a3392",
+  "categories": [
+    "card",
+    "table",
+    "payment"
+  ],
+  "created_at": {
+    "$date": "2025-04-22T10:55:47.733Z"
+  }
+}]
