@@ -18,6 +18,7 @@
 </script>
 
 <header class="fixed inset-x-0 top-0 z-40 border-b border-border px-4 sm:px-6 lg:px-8 bg-background/60 backdrop-blur-md">
+	<!-- LG -->
 	<div class="flex h-16 items-center justify-between ">
 		<a
 			href="/"
@@ -66,7 +67,7 @@
 			{#if $auth.token && $auth.isLoggedIn}
 				<a
 					href="/profile"
-					class="lora hidden h-8 w-8 gap-3 rounded-full border-2 border-white bg-muted italic sm:flex"
+					class="lora hidden h-8 aspect-square gap-3 rounded-full border-2 border-white bg-muted italic sm:flex"
 				>
 					<button class="h-full w-full">
 						{$user?.first_name[0]}
@@ -111,8 +112,9 @@
 		</div>
 	</div>
 	
+	<!-- MD -->
 	<div class="md:flex lg:hidden hidden gap-x-3 mt-1 bg-muted/80 px-5 py-4 rounded-lg mb-4">
-		<form on:submit={handleSearch} class=" flex w-full overflow-hidden rounded-lg border bg-zinc-700/40 py-1 pl-4 pr-2 items-center justify-between">
+		<form on:submit={handleSearch} class=" flex w-full overflow-hidden rounded-lg border border-zinc-700/60 py-1 pl-4 pr-2 items-center justify-between">
 			<input
 				type="text"
 				placeholder="Search..."
@@ -137,7 +139,7 @@
 		{#if $auth.token && $auth.isLoggedIn}
 			<a
 				href="/profile"
-				class="lora hidden h-8 w-8 gap-3 rounded-full border-2 border-white bg-muted italic sm:flex"
+				class=" lora hidden h-8 aspect-square gap-3 rounded-full border-2 border-white bg-muted italic sm:flex"
 			>
 				<button class="h-full w-full">
 					{$user?.first_name[0]}
@@ -151,6 +153,7 @@
 
 	</div>
 
+	<!-- SM -->
 	{#if showMenu}
 		<div
 			class="flex min-h-screen w-64 flex-col gap-y-4 bg-gradient-to-t from-black to-transparent p-4"

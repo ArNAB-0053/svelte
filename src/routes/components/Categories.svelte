@@ -2,6 +2,7 @@
 	import { register } from 'swiper/element/bundle';
 	import { ChevronRight, ChevronLeft } from '@lucide/svelte';
 	import { onMount } from 'svelte';
+	import Device from 'svelte-device-info';
 
 	register();
 
@@ -15,6 +16,8 @@
 
 	let Categories: Category[] = [];
 	let isLoading = true;
+	let isMobile = Device.isMobile;
+	let isTablet = Device.isTablet;
 
 	// export let handleCategories;
 
@@ -62,7 +65,7 @@
 	centered-slides="false"
 	autoplay-delay="2500"
 	autoplay-disable-on-interaction="false"
-	slides-per-view="10"
+	slides-per-view={isMobile? 3.4: isTablet ? 5.7 : 9.5}
 >
 	{#if isLoading}
 		<p class="text-muted-foreground">Loading anime list...</p>

@@ -13,7 +13,7 @@
 	let allAnime: Anime[] = [];
 	let isLoading = true;
 
-	const URL = `/api/images`;
+	const URL = `/api/images?limit=24`;
 
 	onMount(async () => {
 		try {
