@@ -23,7 +23,7 @@
 <div class="grid w-full grid-cols-3 gap-4">
 	{#if imageData}
 		{#each imageData as eachImg}
-			<a href="/categories?category={eachImg.title}" class="relative">
+			<a href="/categories?category={eachImg.title.toLowerCase()}" class="relative">
 				<img
 					src={eachImg.image_url.concat('?auto=format&fit=crop&w=600&h=600&dpr=2')}
 					alt=""
