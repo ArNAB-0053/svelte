@@ -124,8 +124,8 @@
 	}
 </script>
 
-<div class="relative flex min-h-screen items-center justify-between gap-x-8">
-	<div class="relative w-[50%]">
+<div class="relative flex max-lg:flex-col min-h-screen items-center justify-between gap-x-8 mb-10">
+	<div class="relative lg:w-[50%]">
 		<span
 			class="relative overflow-hidden before:absolute before:inset-0 before:z-10 before:bg-gradient-to-r before:from-black before:to-transparent"
 		>
@@ -137,17 +137,17 @@
 		</span>
 
 		<div
-			class="absolute right-20 top-[40%] z-20 flex w-full max-w-md flex-col items-end justify-end"
+			class="absolute lg:right-20 top-[40%] z-20 flex w-full lg:-w-md flex-col items-center justify-center lg:items-end lg:justify-end"
 		>
-			<h2 class="oswald text-end text-5xl font-bold uppercase">Join us today</h2>
-			<p class="lora text-md mt-3 w-[80%] text-end italic leading-4">
+			<h2 class="oswald text-center lg:text-end text-5xl font-bold uppercase">Join us today</h2>
+			<p class="lora text-md mt-3 text-center lg:w-[80%] lg:text-end italic leading-4">
 				Discover, share, and download stunning <span class="text-primary">images</span> with ease.
 			</p>
 		</div>
 	</div>
 
 	<div class="flex-1">
-		<div class="lora w-[80%] px-5 italic text-black">
+		<div class="lora lg:w-[80%] px-5 italic text-black">
 			<div class="mb-8 flex flex-col items-center justify-center">
 				<h1 class="text-3xl font-bold text-white">Sign Up</h1>
 				<div class="mt-4 h-1 w-[50px] bg-white"></div>

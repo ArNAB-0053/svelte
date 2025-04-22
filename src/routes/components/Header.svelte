@@ -2,7 +2,7 @@
 	import { Button } from '@/components/ui/button';
 	import { auth } from '@/stores/auth';
 	import { goto } from '$app/navigation';
-	import { Plus, Search } from '@lucide/svelte';
+	import { MoveRight, Plus, Search, X } from '@lucide/svelte';
 	import { jwtDecode } from 'jwt-decode';
 	import { user } from '@/stores/user';
 	let search = '';
@@ -13,6 +13,8 @@
 			goto(`/q?q=${encodeURIComponent(search.trim())}`);
 		}
 	}
+
+	let showMenu = false;
 </script>
 
 <header class="fixed inset-x-0 top-0 z-40 border-b border-border bg-background/60 backdrop-blur-md">
@@ -36,10 +38,10 @@
 			</a>
 		</nav>
 
-		<div class="flex items-center justify-end gap-x-2">
+		<div class="flex items-center justify-end gap-x-2 max-lg:hidden">
 			<form
 				on:submit={handleSearch}
-				class="hidden items-center gap-2 rounded-md bg-muted/50 py-[0.2rem] pl-3 pr-[0.2rem] md:flex"
+				class=" flex items-center gap-2 rounded-md bg-muted/50 py-[0.2rem] pl-3 pr-[0.2rem]"
 			>
 				<input
 					type="text"
@@ -78,18 +80,96 @@
 		</div>
 
 		<div class="md:hidden">
-			<Button aria-label="Toggle Menu">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-6 w-6"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					stroke-width="2"
+			{#if !showMenu}
+				<Button
+					aria-label="Toggle Menu"
+					onclick={() => {
+						showMenu = true;
+					}}
 				>
-					<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-				</svg>
-			</Button>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-6 w-6"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+					</svg>
+				</Button>
+			{:else}
+				<Button
+					aria-label="Toggle Menu"
+					onclick={() => {
+						showMenu = false;
+					}}
+				>
+					<X />
+				</Button>
+			{/if}
 		</div>
 	</div>
+	{#if showMenu}
+		<div class="flex min-h-screen w-64 flex-col gap-y-4 bg-gradient-to-t from-black to-transparent p-4 ">
+			<nav class="lora flex flex-col gap-6 text-sm italic">
+				<a href="/new" class="text-muted-foreground transition hover:text-foreground"> New </a>
+				<a href="/popular" class="text-muted-foreground transition hover:text-foreground">
+					Popular
+				</a>
+				<a href="/categories" class="text-muted-foreground transition hover:text-foreground">
+					Categories
+				</a>
+			</nav>
+
+			<div class="h-[1px] w-full bg-border"></div>
+
+			<div class="flex w-full flex-col gap-y-2">
+				<form
+					on:submit={handleSearch}
+					class=" flex w-full rounded-md border bg-muted/90 py-1 pl-4 pr-2"
+				>
+					<input
+						type="text"
+						placeholder="Search..."
+						bind:value={search}
+						class="bg-transparent text-sm outline-none"
+					/>
+					<button
+						type="submit"
+						class="ease flex flex-1 items-center justify-center rounded-md p-1.5 text-gray-300 transition-all duration-200 hover:bg-gray-400/20 hover:text-gray-300/80"
+					>
+						<Search size={18} />
+					</button>
+				</form>
+
+				<div class="my-4 h-[1px] w-full bg-border"></div>
+
+				<a href="/add-image" class="lora flex w-full gap-3 italic">
+					<Button class="w-full rounded-md">
+						<Plus />
+						Add Image
+					</Button>
+				</a>
+
+				{#if $auth.token && $auth.isLoggedIn}
+					<a
+						href="/profile"
+						class="lora group flex items-center justify-center gap-3 rounded-md bg-zinc-800 py-2 italic transition-all duration-100 ease-linear hover:bg-muted hover:text-white/70"
+					>
+						<button class="flex items-center justify-center gap-x-2 text-xs italic">
+							Go to profile <MoveRight
+								class="transition-all duration-100 ease-linear group-hover:translate-x-2"
+							/>
+						</button>
+					</a>
+				{:else}
+				<div class="my-4 h-[2px] w-1/2 place-self-center bg-white"></div>
+					<a href="/login" class="lora gap-3 italic flex w-full ">
+						<Button class="w-full ">Login</Button>
+					</a>
+				{/if}
+			</div>
+		</div>
+	{/if}
 </header>

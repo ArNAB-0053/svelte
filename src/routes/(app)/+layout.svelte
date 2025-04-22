@@ -13,7 +13,7 @@
 					const res = await fetch(`/api/user?email=${decodedToken.email}`);
 					if (res.ok) {
 						const userData = await res.json();
-						console.log(userData)
+						// console.log(userData)
 						user.set(userData);
 					} else {
 						user.set(null);

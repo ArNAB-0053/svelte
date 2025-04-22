@@ -2,19 +2,21 @@
 	import Button from '@/components/ui/button/button.svelte';
 	import { register } from 'swiper/element/bundle';
 	import { ChevronRight, ChevronLeft } from '@lucide/svelte';
+	import Device from 'svelte-device-info';
 
 	register();
 
 	export let animeList: any[];
 	export let isLoading: boolean;
 	export let handleClick;
+	let isMobile = Device.isMobile;
 
 	// let { animeList, isLoading }: { animeList: any[]; isLoading: boolean } = $props();
 </script>
 
 <div class="mb-6 mt-24 flex items-center justify-between px-6 lg:px-8">
-	<h1 class="lora text-2xl font-black italic">
-		Finding your <strong class="oswald not-italic">categories . . .</strong>
+	<h1 class="lora text-2xl font-black italic truncate">
+		Finding your <strong class="oswald not-italic ">categories <b class="max-lg:hidden">. . .</b></strong>
 	</h1>
 	<span class="flex items-center justify-end gap-x-2">
 		<div
@@ -40,7 +42,7 @@
 		centered-slides="false"
 		autoplay-delay="2500"
 		autoplay-disable-on-interaction="false"
-		slides-per-view="2.3"
+		slides-per-view={isMobile ? 1.3 : 2.3}
 		grid-rows="1"
 	>
 		{#if isLoading}

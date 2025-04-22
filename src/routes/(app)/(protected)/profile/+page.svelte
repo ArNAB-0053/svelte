@@ -54,11 +54,11 @@
 </script>
 
 <div class="mt-24 flex min-h-screen items-start justify-between bg-black px-6 gap-x-10 text-white lg:px-8">
-	<section class="w-64  ">
+	<section class="w-64 max-lg:hidden ">
 		<Sidebar />
 	</section>
 
-	<div class="h-[80vh] w-[1px] bg-border"></div>
+	<div class="h-[80vh] w-[1px] bg-border max-lg:hidden"></div>
 
 	<div class="flex-1 flex items-center justify-center">
 		<div
@@ -108,7 +108,7 @@
 			<!-- Logout Button -->
 			<div class="mt-10 text-right">
 				<Button
-					on:click={handleLogOut}
+					onclick={handleLogOut}
 					class="rounded-xl bg-red-600 px-6 py-2 font-medium text-white transition-all duration-200 hover:bg-red-700"
 				>
 					Log Out

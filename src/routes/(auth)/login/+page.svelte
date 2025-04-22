@@ -44,22 +44,22 @@
 	}
 </script>
 
-<div class="flex min-h-screen items-center justify-between gap-x-8">
-	<div class="relative w-[50%]">
+<div class="flex max-lg:flex-col min-h-screen items-center justify-between gap-x-8 mb-10">
+	<div class="relative lg:w-[50%]">
 		<span
 			class="relative overflow-hidden before:absolute before:inset-0 before:z-10 before:bg-gradient-to-r before:from-black before:to-transparent"
 		>
 			<img
 				src="https://images.unsplash.com/photo-1743102254227-1d3134f39615?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 				alt=""
-				class="h-svh -translate-y-20"
+				class="h-svh lg:-translate-y-20"
 			/>
 		</span>
 		<div
-			class="absolute right-20 top-[40%] z-20 flex w-full max-w-md flex-col items-end justify-end"
+			class="absolute lg:right-20 top-[60%] lg:top-[40%] z-20 flex w-full max-w-md flex-col items-end justify-end"
 		>
-			<h2 class="oswald text-end text-5xl font-bold uppercase">Welcome back !</h2>
-			<p class="lora text-md mt-3 w-[80%] text-end italic leading-4">
+			<h2 class="oswald text-center lg:text-end text-5xl font-bold uppercase">Welcome back !</h2>
+			<p class="lora text-md mt-3 lg:w-[80%] text-center lg:text-end italic leading-4">
 				Glad to have you here again. Start browsing and enjoy new <span class="text-primary"
 					>pictures</span
 				>.
@@ -68,7 +68,7 @@
 	</div>
 
 	<div class="flex-1">
-		<div class="lora w-[80%] px-5 italic text-black">
+		<div class="lora lg:w-[80%] px-5 italic text-black">
 			<div class="mb-8 flex flex-col items-center justify-center">
 				<h1 class="text-3xl font-bold text-white">Log In</h1>
 				<div class="mt-4 h-1 w-[50px] bg-white"></div>

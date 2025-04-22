@@ -35,7 +35,7 @@
 {:else if allAnime.length === 0}
 	<p class="text-center text-sm">No anime images found.</p>
 {:else}
-	<div class="masonry">
+	<div class="masonry mb-20">
 		{#each allAnime as anime}
 			<a
 				href={`/i/${anime._id}`}
