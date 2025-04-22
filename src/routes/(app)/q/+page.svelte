@@ -16,6 +16,6 @@
 	});
 </script>
 
-<div class="mt-20 min-h-screen px-6 lg:px-8">
+<div class="mt-24 md:mt-48 lg:mt-24 min-h-screen px-6 lg:px-8">
     <Template {searched} isSearch={true} />
 </div>

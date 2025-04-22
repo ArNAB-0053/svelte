@@ -31,7 +31,7 @@
 	// }
 </script>
 
-<div class="mt-20 px-6 lg:px-8">
+<div class="mt-24 md:mt-40 lg:mt-24 px-6 lg:px-8">
 	<Categories/>
 	{#if category}
 		<h2 class="oswald mb-5 mt-16 text-3xl">Best <i class="lora italic">images</i> for you</h2>

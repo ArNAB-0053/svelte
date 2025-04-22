@@ -12,6 +12,6 @@
 	
 </script>
 
-<div>
+<div class="md:mt-48 mt-24 lg:mt-24">
 	{@render children()}
 </div>

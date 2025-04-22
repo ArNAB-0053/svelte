@@ -132,21 +132,21 @@
 			<img
 				src="https://images.unsplash.com/photo-1743102254366-8d5bccffebb8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 				alt=""
-				class="relative z-0 h-svh object-cover"
+				class="relative z-0 h-svh object-cover "
 			/>
 		</span>
 
 		<div
-			class="absolute lg:right-20 top-[40%] z-20 flex w-full lg:-w-md flex-col items-center justify-center lg:items-end lg:justify-end"
+			class="absolute lg:right-20 top-[40%] z-20 flex w-full lg:max-w-md flex-col items-center justify-center lg:items-end lg:justify-end"
 		>
-			<h2 class="oswald text-center lg:text-end text-5xl font-bold uppercase">Join us today</h2>
-			<p class="lora text-md mt-3 text-center lg:w-[80%] lg:text-end italic leading-4">
+			<h2 class="oswald text-center lg:text-end text-4xl lg:text-5xl font-bold uppercase">Join us today</h2>
+			<p class="lora text-md mt-3 text-center w-[85%] lg:w-[80%] lg:text-end italic leading-4">
 				Discover, share, and download stunning <span class="text-primary">images</span> with ease.
 			</p>
 		</div>
 	</div>
 
-	<div class="flex-1">
+	<div class="flex-1 md:absolute top-[60%] z-20 w-full md:w-[80%] lg:relative">
 		<div class="lora lg:w-[80%] px-5 italic text-black">
 			<div class="mb-8 flex flex-col items-center justify-center">
 				<h1 class="text-3xl font-bold text-white">Sign Up</h1>
@@ -155,13 +155,13 @@
 			<form on:submit|preventDefault={handleSignup}>
 				<div class="flex flex-col gap-y-3 text-white">
 					<span class="flex items-center justify-center gap-x-1">
-						<Input type="text" bind:value={first_name} placeholder="First Name" required />
-						<Input type="text" bind:value={last_name} placeholder="Last Name" required />
+						<Input type="text" bind:value={first_name} placeholder="First Name" required class="bg-muted/20 backdrop-blur-3" />
+						<Input type="text" bind:value={last_name} placeholder="Last Name" required class="bg-muted/20 backdrop-blur-3"/>
 					</span>
-					<Input type="email" bind:value={email} placeholder="Email" required />
+					<Input type="email" bind:value={email} placeholder="Email" required class="bg-muted/20 backdrop-blur-3" />
 					<div class="relative">
 						<div
-							class="flex items-center justify-start gap-x-2 rounded-md border px-3 py-2 text-sm"
+							class="flex items-center justify-start gap-x-2 rounded-md border px-3 py-2 text-sm bg-muted/20 backdrop-blur-3"
 						>
 							@
 							<input
@@ -170,7 +170,7 @@
 								on:input={debouncedCheckUsername}
 								placeholder="Username"
 								required
-								class="w-full border-l bg-transparent pl-2 outline-none"
+								class="w-full border-l pl-2 outline-none bg-transparent"
 							/>
 							{#if usernameLoading}
 								<Loader2 class="absolute right-2 h-5 w-5 animate-spin text-gray-500" />
@@ -184,7 +184,7 @@
 							<p class="mt-1 text-sm text-red-500">{usernameError}</p>
 						{/if}
 					</div>
-					<Input type="password" bind:value={password} placeholder="Password" required />
+					<Input type="password" bind:value={password} placeholder="Password" required class="bg-muted/20 backdrop-blur-3"/>
 					<span class="my-2 text-center text-sm text-muted-foreground/70">
 						Already have an account?
 						<a href="/login" class="text-primary underline">Log In</a>

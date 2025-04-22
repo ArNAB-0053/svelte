@@ -53,7 +53,7 @@
 	}
 </script>
 
-<div class="mt-24 flex min-h-screen items-start justify-between bg-black px-6 gap-x-10 text-white lg:px-8">
+<div class=" flex min-h-screen items-start justify-between bg-black px-6 gap-x-10 text-white lg:px-8">
 	<section class="w-64 max-lg:hidden ">
 		<Sidebar />
 	</section>

@@ -10,11 +10,14 @@
 	export let isLoading: boolean;
 	export let handleClick;
 	let isMobile = Device.isMobile;
+	let isTablet = Device.isTablet;
+
+	// console.log(isMobile)
 
 	// let { animeList, isLoading }: { animeList: any[]; isLoading: boolean } = $props();
 </script>
 
-<div class="mb-6 mt-24 flex items-center justify-between px-6 lg:px-8">
+<div class="mb-6 mt-24 md:mt-48 lg:mt-24 flex items-center justify-between px-6 lg:px-8">
 	<h1 class="lora text-2xl font-black italic truncate">
 		Finding your <strong class="oswald not-italic ">categories <b class="max-lg:hidden">. . .</b></strong>
 	</h1>
@@ -42,7 +45,7 @@
 		centered-slides="false"
 		autoplay-delay="2500"
 		autoplay-disable-on-interaction="false"
-		slides-per-view={isMobile ? 1.3 : 2.3}
+		slides-per-view={isMobile ? 1.3 : isTablet ? 1.4 : 2.3}
 		grid-rows="1"
 	>
 		{#if isLoading}
@@ -51,10 +54,10 @@
 			{#each animeList as anime}
 				<swiper-slide>
 					<a href={`categories?category=${anime.title.toLowerCase()}`}
-						class="relative h-[55vh] w-full overflow-hidden rounded-lg"
+						class="relative h-[33svh] md:h-[40svj] lg:h-[55vh] w-full overflow-hidden rounded-lg"
 					>
 						<img
-							class="absolute right-0 top-0 h-full w-[73vw] object-cover"
+							class="absolute right-0 top-0 h-full md:w-[73vw] object-cover"
 							src={anime.image_url.concat('?auto=format&fit=crop&w=600&h=600&dpr=2')}
 							alt={anime?.title ?? 'Anime'}
 						/>
