@@ -2,6 +2,9 @@
 	import { Button } from '@/components/ui/button';
 	import { auth } from '@/stores/auth';
 	import { goto } from '$app/navigation';
+	import { Plus, Search } from '@lucide/svelte';
+	import { jwtDecode } from 'jwt-decode';
+	import { user } from '@/stores/user';
 	let search = '';
 
 	function handleSearch(e: Event) {
@@ -33,35 +36,40 @@
 			</a>
 		</nav>
 
-		<form on:submit={handleSearch} class="hidden md:flex items-center gap-2">
-			<input
-				type="text"
-				placeholder="Search..."
-				bind:value={search}
-				class="rounded-md border border-border bg-background px-3 py-1.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-			/>
-			<button
-				type="submit"
-				class="rounded-md bg-primary px-4 py-1.5 text-sm font-semibold text-white hover:bg-primary/90"
-			>
-				Search
-			</button>
-		</form>
-
 		<div class="flex items-center justify-end gap-x-2">
-			<a href="/add-image" class="lora hidden gap-3 italic sm:flex">
-				<Button
-					variant="outline"
-					class="rounded-md border-primary/30 bg-transparent text-primary/80 hover:bg-primary/30"
-					>Add Image</Button
+			<form
+				on:submit={handleSearch}
+				class="hidden items-center gap-2 rounded-md bg-muted/50 py-[0.2rem] pl-3 pr-[0.2rem] md:flex"
+			>
+				<input
+					type="text"
+					placeholder="Search..."
+					bind:value={search}
+					class="flex-1 bg-transparent text-sm outline-none"
+				/>
+				<button
+					type="submit"
+					class="ease rounded-md border-l bg-gray-500/20 p-1.5 text-gray-300 transition-all duration-200 hover:bg-gray-400/20 hover:text-gray-300/80"
 				>
+					<Search size={18} />
+				</button>
+			</form>
+			<a href="/add-image" class="lora hidden gap-3 italic sm:flex">
+				<Button class="rounded-md ">
+					<Plus />
+					Add Image
+				</Button>
 			</a>
 
 			{#if $auth.token && $auth.isLoggedIn}
-				<a href="/profile" class="lora hidden gap-3 italic sm:flex">
-					<Button>Profile</Button>
+				<a
+					href="/profile"
+					class="lora hidden h-8 w-8 gap-3 rounded-full border-2 border-white bg-muted italic sm:flex"
+				>
+					<button class="h-full w-full">
+						{$user?.first_name[0]}
+					</button>
 				</a>
-				
 			{:else}
 				<a href="/login" class="lora hidden gap-3 italic sm:flex">
 					<Button>Login</Button>
