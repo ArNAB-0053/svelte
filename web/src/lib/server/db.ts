@@ -20,7 +20,7 @@ export async function startMongo() {
                 // console.log('Dropped existing TTL index on pending_users.createdAt');
             } catch (error) {
                 console.log('No existing TTL index to drop');
-				throw error;
+                // Do not throw error here to allow index creation to proceed
             }
 
             // TTL - Time to Live index with 1800 seconds (30 minutes)
